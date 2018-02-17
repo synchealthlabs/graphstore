@@ -1,0 +1,57 @@
+{
+  "docs": {
+    "The Basics": [
+      "introduction",
+      "documents-collections",
+      "stores-models",
+      "schema"
+    ],
+    "Guides": [
+      "guide",
+      "guide-connect",
+      "guide-get",
+      "guide-observe",
+      "guide-update"
+    ],
+    "Code Generators": [
+      "schema-generator",
+      "model-generator"
+    ]
+  },
+  "docs-api": {
+    "General": [
+      "api-readme"
+    ],
+    "Classes": [
+      "api-classes-graphstore-graphstore",
+      "api-classes-graphstorefirebase-graphstorefirebase",
+      "api-classes-graphstorememory-graphstorememory",
+      "api-classes-graphstorememory-memorydatabase",
+      "api-classes-persistentmodel-model",
+      "api-classes-persistentmodel-modelcollection",
+      "api-classes-persistentmodel-status",
+      "api-classes-persistentmodel-store",
+      "api-classes-persistentmodel-submodel"
+    ],
+    "Interfaces": [
+      "api-interfaces-graphstore-ifiredatabase",
+      "api-interfaces-graphstore-ifiredatabaseref",
+      "api-interfaces-graphstore-ifiredatabasesnapshot",
+      "api-interfaces-igraphstore-igraphstore",
+      "api-interfaces-igraphstore-igraphstorestatus",
+      "api-interfaces-persistentmodelobservable-ienhancedobservablearray",
+      "api-interfaces-persistentmodelobservable-ienhancedobservabledelegate"
+    ],
+    "Modules": [
+      "api-modules-graphstore-module",
+      "api-modules-graphstorefirebase-module",
+      "api-modules-graphstorememory-module",
+      "api-modules-igraphstore-module",
+      "api-modules-persistentmodel-module",
+      "api-modules-persistentmodelobservable-module"
+    ],
+    "Enums": [
+      "api-enums-igraphstore-sourcetype"
+    ]
+  }
+}

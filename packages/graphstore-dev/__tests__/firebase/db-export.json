@@ -1,0 +1,115 @@
+{
+  "analytics": {
+    "users": {
+      "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0": {
+        "lastOpened": 1513704137
+      }
+    }
+  },
+  "awesomeLinks" : {
+    "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0" : {
+      "-KvSbMLWe4jOphJBUo7N" : {
+        "created" : 1.506956637638E9,
+        "lastViewed" : 1506963118,
+        "link" : "https://github.com/besync/graphstore",
+        "name" : "Here's a link for a great repository",
+        "type" : "link"
+      }
+    }
+  },
+  "graphState" : {
+    "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0" : {
+      "WFG7110obuVK70l5hKUX" : {
+        "encData" : "m9OeVCezNXActLlta27amI73h/hs9w76q4IC6mbsdfsfsfsdfsdq7hn7dyDi20kANAfcTEFnjEcN7p9PlGrhW9+ux86bBqR+MRBuBgxgYFNxBHHBby5RPptmcUHtkhd80/8gQuK1W58oMObeqfZSjrbyKAJJMl0U5xdIp5zpzy25r1n430aDwlFN+MBC8MkjdrRKOHCHo6OrNpGzsSV7ELThjm0eIX0mdXXRcsPYBrCtLJmR/iz87A1FmWoyg/T6bk0iOphGlAD+HRpxuSlvkuEEZp/5+thT7KvqXQcAR0PiyXouMq4vBpNlxMQT4ve5uNB8QBsXbHjxp5I7VRjuvVxGFmzU9npnmd7DnKQgqC9ovp4yDHXeuFwRP4UWyRIXvoqfFVjhnMICkQ3ZmTB5Zam/IOynSygInmVSyAj+eGTAhkyMK86JfWFat+"
+      },
+      "urn:device:screensessiontracker" : {
+        "encData" : "QZ6rFD9FbzCHf5CQt2qpFzmzI0nL7OiCYd8MsdfsfsdfsdfsdfAUs2R9gnFGiMN4ohq4XfXqh/pnLlEqBSp7YLLNfHqvPLVjKvwN8e5lus69jmgDNMAeYgYRowfQW2VY99P9gtN+i0shBz4iczmB09phy6h3EqyKXZMi1i1E5Rp+gfKT1/bMZ7lULC6yBGHcfptr8nbKTrR2P5b3uiaOm00msoGGf53ZEU7VMVR6Q2nGgvsL9+SbNyG3pLifNEMzuVKnPRJU25LUMaTndLY+jr1o3SDekH3Ih2hn4akziUgJ1Z5/erE1tA2GID7WsyK5WSGhQF2EW26J/zmRMrck0yoppBkUWOLtrbbhomVppbdBIKgFo7ex6mjmd3QWdwMEaoHr/yT90k31P+Bciiiq3yYXoWTQtkFv6zB/X8="
+      }
+    }
+  },
+  "posts": {
+    "-L5GztrgVgr_RLLwJeTp": {
+      "body": "This is a test message",
+      "starCount": 1,
+      "stars": {
+        "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0": true
+      },
+      "title": "This is a test",
+      "uid": "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0"
+    },
+    "-L5Gzzymp5UmzTH7DuIk": {
+      "body": "I really like GraphStore because it abstracts away the database",
+      "starCount": 0,
+      "title": "This is the second post",
+      "uid": "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0"
+    },
+    "-L5H-7POi5Tf8MnsPxw2": {
+      "body": "Ok, I think I am getting the hang of this",
+      "starCount": 0,
+      "title": "This is the third post",
+      "uid": "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0"
+    }
+  },
+  "userPosts": {
+    "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0": {
+      "-L5GztrgVgr_RLLwJeTp": {
+        "body": "This is a test message",
+        "starCount": 1,
+        "stars": {
+          "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0": true
+        },
+        "title": "This is a test",
+        "uid": "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0"
+      },
+      "-L5Gzzymp5UmzTH7DuIk": {
+        "body": "I really like GraphStore because it abstracts away the database",
+        "starCount": 0,
+        "title": "This is the second post",
+        "uid": "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0"
+      },
+      "-L5H-7POi5Tf8MnsPxw2": {
+        "body": "Ok, I think I am getting the hang of this",
+        "starCount": 0,
+        "title": "This is the third post",
+        "uid": "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0"
+      }
+    }
+  },
+  "users": {
+    "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0": {
+      "email": "demo@email.com",
+      "profile_picture": "https://lh4.googleusercontent.com/-asdsdad/AAAAAAAAAAI/AAAAAAAAAJY/dfqq8tfiGoA/photo.jpg",
+      "username": "Demo User"
+    }
+  },
+  "orgs": {
+    "dunder-mifflin": {
+      "id": "dunder-mifflin",
+      "name": "Dunder Mifflin",
+      "parent": "global",
+      "roles": {
+        "admin": true,
+        "consumer": true,
+        "demo": true,
+        "supervisor": true
+      },
+      "search": {
+        "name": "dunder mifflin"
+      }
+    }
+  },
+  "orgUsers" : {
+    "dunder-mifflin" : {
+      "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0" : {
+        "admin" : true,
+        "consumer" : true,
+        "supervisor" : true
+      }
+    },
+    "global" : {
+      "google-Jk0wcm5svSaBAU6Doh5UlPqBrZj1:0" : {
+        "consumer" : true
+      }
+    }
+  }
+}

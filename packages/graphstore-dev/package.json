@@ -1,0 +1,44 @@
+{
+  "name": "@besync/graphstore-dev",
+  "version": "1.0.6",
+  "description": "Generate GraphQL Schema and @besync/graphstore Model from Firebase realtime database",
+  "main": "src/index.js",
+  "bin": {
+    "graphstore-dev": "bin/graphstore-dev.js"
+  },
+  "scripts": {
+    "test-xgen": "npm run xgen1 && npm run xgen2",
+    "xgen1": "graphstore-dev firebase  __tests__/firebase/db-export.json build/schema.graphql",
+    "xgen2": "graphstore-dev graphql  build/schema.graphql build/model.ts",
+    "test-sgen": "npm run sgen1 && npm run sgen2",
+    "sgen0": "graphstore-dev firebase  __tests__/secret/data.json build/schema.graphql",
+    "sgen1": "graphstore-dev firebase  __tests__/secret/db-export.json build/schema.graphql",
+    "sgen2": "graphstore-dev graphql  build/schema.graphql build/model.ts"
+  },
+  "files": [
+    "src",
+    "bin"
+  ],
+  "keywords": [
+    "mobx",
+    "graphstore",
+    "firebase",
+    "orm",
+    "GraphQL"
+  ],
+  "author": "@guycreate, Sync Health Labs Open Source contributors",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/besync/graphstore.git"
+  },
+  "dependencies": {
+    "JSONStream": "^1.3.2",
+    "graphql": "^0.13.0",
+    "graphql-tag": "^2.6.1",
+    "inflection": "^1.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

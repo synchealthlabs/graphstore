@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "DocGen",
+            "program": "${workspaceFolder}/website/scripts/gulpfile.js",
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Tests",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/node_modules/jest/bin/jest",
+            "args": [
+                "--config",
+                "${workspaceRoot}/jest.config.json",
+                "--runInBand",
+                "--no-cache",
+                "--verbose"
+            ],
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/build/**/*"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Generate test schema",
+            "program": "${workspaceFolder}/packages/graphstore-dev/src/xgen.js",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        }
+    ]
+}

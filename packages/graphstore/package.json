@@ -1,0 +1,38 @@
+{
+  "name": "@besync/graphstore",
+  "version": "1.0.5",
+  "description": "mobx persistent stores for graph databases like firebase",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "dist": "tsc -p tsconfig.dist.json --pretty",
+    "test": "echo 'TESTS NOT RUN -- Run tests from workspace root package.json'",
+    "pretest": "npm run prepare && tsc -p tsconfig.test.json --pretty",
+    "prepare": "tsc -p tsconfig.build.json --pretty"
+  },
+  "keywords": [
+    "mobx",
+    "firebase",
+    "orm"
+  ],
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/besync/graphstore.git"
+  },
+  "author": "@guycreate, Sync Health Labs Open Source contributors",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "mobx": "^3.5.1",
+    "reflect-metadata": "^0.1.12",
+    "tslib": "^1.9.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.7.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

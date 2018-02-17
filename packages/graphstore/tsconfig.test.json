@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "inlineSourceMap": true,
+    "rootDir": "./",
+    "outDir": "build",
+    "declaration": false
+  },
+  "include": [
+    "__tests__"
+  ]
+}

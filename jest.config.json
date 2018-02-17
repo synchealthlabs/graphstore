@@ -1,0 +1,15 @@
+{
+    "testRegex": "(/__tests__/[^/]*|\\.spec)\\.js$",
+    "moduleFileExtensions": [
+        "js"
+    ],
+    "rootDir": "packages",
+    "collectCoverage": true,
+    "mapCoverage": true,
+    "coverageDirectory": "../build/coverage",
+    "collectCoverageFrom": [
+        "**/lib/**/*.js",
+        "!**/*.spec.ts",
+        "!**/*.d.ts"
+    ]
+}
