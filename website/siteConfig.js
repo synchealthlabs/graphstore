@@ -2,22 +2,22 @@
 const users = [
   {
     caption: 'Synchronous Health Health',
-    image: '/graphstore/img/synchealth.svg',
+    image: '/img/synchealth.svg',
     infoLink: 'https://www.sync.health',
     pinned: true,
   },  {
     caption: 'Domabo',
-    image: '/graphstore/img/domabo.png',
+    image: '/img/domabo.png',
     infoLink: 'http://domabo.com',
     pinned: true,
   }, {
     caption: 'Headlight Studios',
-    image: '/graphstore/img/headlightstudios.svg',
+    image: '/img/headlightstudios.svg',
     infoLink: 'https://headlightstudios.com',
     pinned: true,
   },{
     caption: 'Synch Health Labs',
-    image: '/graphstore/img/synchealthlabs.svg',
+    image: '/img/synchealthlabs.svg',
     infoLink: 'https://join.karla.ai',
     pinned: true,
   }
@@ -27,7 +27,7 @@ const siteConfig = {
   title: 'GraphStore' /* title for your website */,
   tagline: 'A tiny, observable, persistent, real-time store based on MobX',
   url: 'https://besync.github.io' /* your website url */,
-  baseUrl: '/graphstore/' /* base url for your project */,
+  baseUrl: '/' /* base url for your project */,
   projectName: 'test-site',
   headerLinks: [
     {doc: 'introduction', label: 'Docs'},
