@@ -1,0 +1,662 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>IEnhancedObservableArray · GraphStore</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="IEnhancedObservableArray · GraphStore"/><meta property="og:type" content="website"/><meta property="og:url" content="https://besync.github.io/graphstore/index.html"/><meta property="og:description" content="[API](/graphstore/docs/api-readme.html) &gt; [[PersistentModelObservable Module]](/graphstore/docs/api-modules-persistentmodelobservable-module.html) &gt; [IEnhancedObservableArray](/graphstore/docs/api-interfaces-persistentmodelobservable-ienhancedobservablearray.html)"/><link rel="shortcut icon" href="/graphstore/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/graphstore/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/graphstore/"><img class="logo" src="/graphstore/img/graphstore-wt.svg"/><h2 class="headerTitle">GraphStore</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/graphstore/docs/introduction.html" target="_self">Docs</a></li><li><a href="/graphstore/docs/api-readme.html" target="_self">API</a></li><li><a href="/graphstore/en/help.html" target="_self">Help</a></li><li><a href="https://github.com/besync/graphstore" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Interfaces</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>General</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-readme.html">API</a></li></ul></div><div class="navGroup navGroupActive"><h3>Classes</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-graphstore-graphstore.html">GraphStore</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-graphstorefirebase-graphstorefirebase.html">GraphStoreFirebase</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-graphstorememory-graphstorememory.html">GraphStoreMemory</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-graphstorememory-memorydatabase.html">MemoryDatabase</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-persistentmodel-model.html">Model</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-persistentmodel-modelcollection.html">ModelCollection</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-persistentmodel-status.html">Status</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-persistentmodel-store.html">Store</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-classes-persistentmodel-submodel.html">Submodel</a></li></ul></div><div class="navGroup navGroupActive"><h3>Interfaces</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-interfaces-graphstore-ifiredatabase.html">IFireDatabase</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-interfaces-graphstore-ifiredatabaseref.html">IFireDatabaseRef</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-interfaces-graphstore-ifiredatabasesnapshot.html">IFireDatabaseSnapshot</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-interfaces-igraphstore-igraphstore.html">IGraphStore</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-interfaces-igraphstore-igraphstorestatus.html">IGraphStoreStatus</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/graphstore/docs/api-interfaces-persistentmodelobservable-ienhancedobservablearray.html">IEnhancedObservableArray</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-interfaces-persistentmodelobservable-ienhancedobservabledelegate.html">IEnhancedObservableDelegate</a></li></ul></div><div class="navGroup navGroupActive"><h3>Modules</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-modules-graphstore-module.html">GraphStore</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-modules-graphstorefirebase-module.html">GraphStoreFirebase</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-modules-graphstorememory-module.html">GraphStoreMemory</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-modules-igraphstore-module.html">IGraphStore</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-modules-persistentmodel-module.html">PersistentModel</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-modules-persistentmodelobservable-module.html">PersistentModelObservable</a></li></ul></div><div class="navGroup navGroupActive"><h3>Enums</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/api-enums-igraphstore-sourcetype.html">SourceType</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>IEnhancedObservableArray</h1></header><article><div><span><p><a href="/graphstore/docs/api-readme.html">API</a> &gt; <a href="/graphstore/docs/api-modules-persistentmodelobservable-module.html">[PersistentModelObservable Module]</a> &gt; <a href="/graphstore/docs/api-interfaces-persistentmodelobservable-ienhancedobservablearray.html">IEnhancedObservableArray</a></p>
+<h2><a class="anchor" aria-hidden="true" name="interface"></a><a href="#interface" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h2>
+<p>An observable collection in @besync/GraphStore; it extends the MobX observable array with some additional properties</p>
+<h2><a class="anchor" aria-hidden="true" name="type-parameters"></a><a href="#type-parameters" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type parameters</h2>
+<h4><a class="anchor" aria-hidden="true" name="t"></a><a href="#t" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>T</h4>
+<h2><a class="anchor" aria-hidden="true" name="hierarchy"></a><a href="#hierarchy" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hierarchy</h2>
+<p><code>IObservableArray</code>.&lt;<code>T</code>&gt;</p>
+<p><strong>↳ IEnhancedObservableArray</strong></p>
+<h2><a class="anchor" aria-hidden="true" name="indexable"></a><a href="#indexable" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Indexable</h2>
+<p>[n: <code>number</code>]: <code>T</code>
+An observable collection in @besync/GraphStore; it extends the MobX observable array with some additional properties</p>
+<h2><a class="anchor" aria-hidden="true" name="properties"></a><a href="#properties" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Properties</h2>
+<p><a id="_emobx"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="emobx"></a><a href="#emobx" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>$emobx</h3>
+<p><strong>●  $emobx</strong>:  <em><code>any</code></em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src/PersistentModelObservable.ts#L27">PersistentModelObservable.ts:27</a></em></p>
+<p>Used internally by @besync/GraphStore; not an authorized public API</p>
+<hr>
+<p><a id="exists"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="exists"></a><a href="#exists" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>exists</h3>
+<p><strong>●  exists</strong>:  <em><code>boolean</code></em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src/PersistentModelObservable.ts#L17">PersistentModelObservable.ts:17</a></em></p>
+<p>Indicates if this collection was found in the persistent store</p>
+<hr>
+<p><a id="length"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="length"></a><a href="#length" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>length</h3>
+<p><strong>●  length</strong>:  <em><code>number</code></em></p>
+<p><em>Inherited from Array.length</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1114">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1114</a></em></p>
+<p>Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.</p>
+<hr>
+<p><a id="loading"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="loading"></a><a href="#loading" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>loading</h3>
+<p><strong>●  loading</strong>:  <em><code>boolean</code></em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src/PersistentModelObservable.ts#L12">PersistentModelObservable.ts:12</a></em></p>
+<p>Indicates if this collection is currently being retrieved from the persistent store</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" name="methods"></a><a href="#methods" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h2>
+<p><a id="clear"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="clear"></a><a href="#clear" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>clear</h3>
+<p>► <strong>clear</strong>(): <code>T</code>[]</p>
+<p><em>Inherited from IObservableArray.clear</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L10">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:10</a></em></p>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="concat"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="concat"></a><a href="#concat" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>concat</h3>
+<p>► <strong>concat</strong>(...items: <em>(<code>T</code>[]⎮<code>ReadonlyArray</code>.&lt;<code>T</code>&gt;)[]</em>): <code>T</code>[]</p>
+<p>► <strong>concat</strong>(...items: <em>(<code>T</code>[]⎮<code>T</code>⎮<code>ReadonlyArray</code>.&lt;<code>T</code>&gt;)[]</em>): <code>T</code>[]</p>
+<p><em>Inherited from Array.concat</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1136">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1136</a></em></p>
+<p>Combines two or more arrays.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>items</td><td>(<code>T</code>[]⎮<code>ReadonlyArray</code>.&lt;<code>T</code>&gt;)[]</td><td>Additional items to add to the end of array1.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<p><em>Inherited from Array.concat</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1141">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1141</a></em></p>
+<p>Combines two or more arrays.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>items</td><td>(<code>T</code>[]⎮<code>T</code>⎮<code>ReadonlyArray</code>.&lt;<code>T</code>&gt;)[]</td><td>Additional items to add to the end of array1.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="create"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="create"></a><a href="#create" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create</h3>
+<p>► <strong>create</strong>(): <code>T</code></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src/PersistentModelObservable.ts#L22">PersistentModelObservable.ts:22</a></em></p>
+<p>Factory method to create a new document in the collection</p>
+<p><strong>Returns:</strong> <code>T</code></p>
+<hr>
+<p><a id="every"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="every"></a><a href="#every" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>every</h3>
+<p>► <strong>every</strong>(callbackfn: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>): <code>boolean</code></p>
+<p><em>Inherited from Array.every</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1201">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1201</a></em></p>
+<p>Determines whether all the members of an array satisfy the specified test.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to three arguments. The every method calls the callbackfn function for each element in array1 until the callbackfn returns false, or until the end of the array.</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>boolean</code></p>
+<hr>
+<p><a id="filter"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="filter"></a><a href="#filter" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>filter</h3>
+<p>► <strong>filter</strong>S(callbackfn: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>): <code>S</code>[]</p>
+<p>► <strong>filter</strong>(callbackfn: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>): <code>T</code>[]</p>
+<p><em>Inherited from Array.filter</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1225">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1225</a></em></p>
+<p>Returns the elements of an array that meet the condition specified in a callback function.</p>
+<p><strong>Type parameters:</strong></p>
+<h4><a class="anchor" aria-hidden="true" name="s-t"></a><a href="#s-t" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S :  <code>T</code></h4>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array.</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>S</code>[]</p>
+<p><em>Inherited from Array.filter</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1231">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1231</a></em></p>
+<p>Returns the elements of an array that meet the condition specified in a callback function.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array.</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="find"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="find"></a><a href="#find" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>find</h3>
+<p>► <strong>find</strong>(predicate: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>, fromIndex?: <em><code>number</code></em>): <code>T</code>⎮<code>undefined</code></p>
+<p><em>Inherited from IObservableArray.find</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L13">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:13</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>predicate</td><td><code>function</code></td><td>-</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>-</td></tr>
+<tr><td>fromIndex</td><td><code>number</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>⎮<code>undefined</code></p>
+<hr>
+<p><a id="findindex"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="findindex"></a><a href="#findindex" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>findIndex</h3>
+<p>► <strong>findIndex</strong>(predicate: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>, fromIndex?: <em><code>number</code></em>): <code>number</code></p>
+<p><em>Inherited from IObservableArray.findIndex</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L14">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:14</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>predicate</td><td><code>function</code></td><td>-</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>-</td></tr>
+<tr><td>fromIndex</td><td><code>number</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>number</code></p>
+<hr>
+<p><a id="foreach"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="foreach"></a><a href="#foreach" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>forEach</h3>
+<p>► <strong>forEach</strong>(callbackfn: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>): <code>void</code></p>
+<p><em>Inherited from Array.forEach</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1213">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1213</a></em></p>
+<p>Performs the specified action for each element in an array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>void</code></p>
+<hr>
+<p><a id="indexof"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="indexof"></a><a href="#indexof" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>indexOf</h3>
+<p>► <strong>indexOf</strong>(searchElement: <em><code>T</code></em>, fromIndex?: <em><code>number</code></em>): <code>number</code></p>
+<p><em>Inherited from Array.indexOf</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1189">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1189</a></em></p>
+<p>Returns the index of the first occurrence of a value in an array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>searchElement</td><td><code>T</code></td><td>The value to locate in the array.</td></tr>
+<tr><td>fromIndex</td><td><code>number</code></td><td>The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>number</code></p>
+<hr>
+<p><a id="intercept"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="intercept"></a><a href="#intercept" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>intercept</h3>
+<p>► <strong>intercept</strong>(handler: <em><code>IInterceptor</code>.&lt;<code>IArrayWillChange</code>.&lt;<code>T</code>&gt;⎮<code>IArrayWillSplice</code>.&lt;<code>T</code>&gt;&gt;</em>): <code>Lambda</code></p>
+<p>► <strong>intercept</strong>(handler: <em><code>IInterceptor</code>.&lt;<code>IArrayChange</code>.&lt;<code>T</code>&gt;⎮<code>IArraySplice</code>.&lt;<code>T</code>&gt;&gt;</em>): <code>Lambda</code></p>
+<p>► <strong>intercept</strong>T(handler: <em><code>IInterceptor</code>.&lt;<code>IArrayChange</code>.&lt;<code>T</code>&gt;⎮<code>IArraySplice</code>.&lt;<code>T</code>&gt;&gt;</em>): <code>Lambda</code></p>
+<p><em>Inherited from IObservableArray.intercept</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L7">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:7</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>handler</td><td><code>IInterceptor</code>.&lt;<code>IArrayWillChange</code>.&lt;<code>T</code>&gt;⎮<code>IArrayWillSplice</code>.&lt;<code>T</code>&gt;&gt;</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Lambda</code></p>
+<p><em>Inherited from IObservableArray.intercept</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L8">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:8</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>handler</td><td><code>IInterceptor</code>.&lt;<code>IArrayChange</code>.&lt;<code>T</code>&gt;⎮<code>IArraySplice</code>.&lt;<code>T</code>&gt;&gt;</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Lambda</code></p>
+<p><em>Inherited from IObservableArray.intercept</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L9">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:9</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<h4><a class="anchor" aria-hidden="true" name="t"></a><a href="#t" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>T</h4>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>handler</td><td><code>IInterceptor</code>.&lt;<code>IArrayChange</code>.&lt;<code>T</code>&gt;⎮<code>IArraySplice</code>.&lt;<code>T</code>&gt;&gt;</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Lambda</code></p>
+<hr>
+<p><a id="join"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="join"></a><a href="#join" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>join</h3>
+<p>► <strong>join</strong>(separator?: <em><code>string</code></em>): <code>string</code></p>
+<p><em>Inherited from Array.join</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1146">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1146</a></em></p>
+<p>Adds all the elements of an array separated by the specified separator string.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>separator</td><td><code>string</code></td><td>A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>string</code></p>
+<hr>
+<p><a id="lastindexof"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="lastindexof"></a><a href="#lastindexof" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>lastIndexOf</h3>
+<p>► <strong>lastIndexOf</strong>(searchElement: <em><code>T</code></em>, fromIndex?: <em><code>number</code></em>): <code>number</code></p>
+<p><em>Inherited from Array.lastIndexOf</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1195">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1195</a></em></p>
+<p>Returns the index of the last occurrence of a specified value in an array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>searchElement</td><td><code>T</code></td><td>The value to locate in the array.</td></tr>
+<tr><td>fromIndex</td><td><code>number</code></td><td>The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>number</code></p>
+<hr>
+<p><a id="map"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="map"></a><a href="#map" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>map</h3>
+<p>► <strong>map</strong>U(callbackfn: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>): <code>U</code>[]</p>
+<p><em>Inherited from Array.map</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1219">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1219</a></em></p>
+<p>Calls a defined callback function on each element of an array, and returns an array that contains the results.</p>
+<p><strong>Type parameters:</strong></p>
+<h4><a class="anchor" aria-hidden="true" name="u"></a><a href="#u" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>U</h4>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>U</code>[]</p>
+<hr>
+<p><a id="move"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="move"></a><a href="#move" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>move</h3>
+<p>► <strong>move</strong>(fromIndex: <em><code>number</code></em>, toIndex: <em><code>number</code></em>): <code>void</code></p>
+<p><em>Inherited from IObservableArray.move</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L16">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:16</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>fromIndex</td><td><code>number</code></td><td>-</td></tr>
+<tr><td>toIndex</td><td><code>number</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>void</code></p>
+<hr>
+<p><a id="observe"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="observe"></a><a href="#observe" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>observe</h3>
+<p>► <strong>observe</strong>(listener: <em><code>function</code></em>, fireImmediately?: <em><code>boolean</code></em>): <code>Lambda</code></p>
+<p><em>Inherited from IObservableArray.observe</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L6">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:6</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>listener</td><td><code>function</code></td><td>-</td></tr>
+<tr><td>fireImmediately</td><td><code>boolean</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Lambda</code></p>
+<hr>
+<p><a id="peek"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="peek"></a><a href="#peek" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>peek</h3>
+<p>► <strong>peek</strong>(): <code>T</code>[]</p>
+<p><em>Inherited from IObservableArray.peek</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L11">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:11</a></em></p>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="pop"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="pop"></a><a href="#pop" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pop</h3>
+<p>► <strong>pop</strong>(): <code>T</code>⎮<code>undefined</code></p>
+<p><em>Inherited from Array.pop</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1131">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1131</a></em></p>
+<p>Removes the last element from an array and returns it.</p>
+<p><strong>Returns:</strong> <code>T</code>⎮<code>undefined</code></p>
+<hr>
+<p><a id="push"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="push"></a><a href="#push" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>push</h3>
+<p>► <strong>push</strong>(...items: <em><code>T</code>[]</em>): <code>number</code></p>
+<p><em>Inherited from Array.push</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1127">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1127</a></em></p>
+<p>Appends new elements to an array, and returns the new length of the array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>items</td><td><code>T</code>[]</td><td>New elements of the Array.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>number</code></p>
+<hr>
+<p><a id="reduce"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="reduce"></a><a href="#reduce" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>reduce</h3>
+<p>► <strong>reduce</strong>(callbackfn: <em><code>function</code></em>): <code>T</code></p>
+<p>► <strong>reduce</strong>(callbackfn: <em><code>function</code></em>, initialValue: <em><code>T</code></em>): <code>T</code></p>
+<p>► <strong>reduce</strong>U(callbackfn: <em><code>function</code></em>, initialValue: <em><code>U</code></em>): <code>U</code></p>
+<p><em>Inherited from Array.reduce</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1237">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1237</a></em></p>
+<p>Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code></p>
+<p><em>Inherited from Array.reduce</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1238">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1238</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>-</td></tr>
+<tr><td>initialValue</td><td><code>T</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code></p>
+<p><em>Inherited from Array.reduce</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1244">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1244</a></em></p>
+<p>Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.</p>
+<p><strong>Type parameters:</strong></p>
+<h4><a class="anchor" aria-hidden="true" name="u"></a><a href="#u" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>U</h4>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.</td></tr>
+<tr><td>initialValue</td><td><code>U</code></td><td>If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>U</code></p>
+<hr>
+<p><a id="reduceright"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="reduceright"></a><a href="#reduceright" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>reduceRight</h3>
+<p>► <strong>reduceRight</strong>(callbackfn: <em><code>function</code></em>): <code>T</code></p>
+<p>► <strong>reduceRight</strong>(callbackfn: <em><code>function</code></em>, initialValue: <em><code>T</code></em>): <code>T</code></p>
+<p>► <strong>reduceRight</strong>U(callbackfn: <em><code>function</code></em>, initialValue: <em><code>U</code></em>): <code>U</code></p>
+<p><em>Inherited from Array.reduceRight</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1250">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1250</a></em></p>
+<p>Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code></p>
+<p><em>Inherited from Array.reduceRight</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1251">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1251</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>-</td></tr>
+<tr><td>initialValue</td><td><code>T</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code></p>
+<p><em>Inherited from Array.reduceRight</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1257">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1257</a></em></p>
+<p>Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.</p>
+<p><strong>Type parameters:</strong></p>
+<h4><a class="anchor" aria-hidden="true" name="u"></a><a href="#u" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>U</h4>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array.</td></tr>
+<tr><td>initialValue</td><td><code>U</code></td><td>If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>U</code></p>
+<hr>
+<p><a id="remove"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="remove"></a><a href="#remove" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>remove</h3>
+<p>► <strong>remove</strong>(value: <em><code>T</code></em>): <code>boolean</code></p>
+<p><em>Inherited from IObservableArray.remove</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L15">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:15</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td><td><code>T</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>boolean</code></p>
+<hr>
+<p><a id="replace"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="replace"></a><a href="#replace" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>replace</h3>
+<p>► <strong>replace</strong>(newItems: <em><code>T</code>[]</em>): <code>T</code>[]</p>
+<p><em>Inherited from IObservableArray.replace</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L12">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:12</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>newItems</td><td><code>T</code>[]</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="reverse"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="reverse"></a><a href="#reverse" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>reverse</h3>
+<p>► <strong>reverse</strong>(): <code>T</code>[]</p>
+<p><em>Inherited from Array.reverse</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1150">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1150</a></em></p>
+<p>Reverses the elements in an Array.</p>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="shift"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="shift"></a><a href="#shift" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>shift</h3>
+<p>► <strong>shift</strong>(): <code>T</code>⎮<code>undefined</code></p>
+<p><em>Inherited from Array.shift</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1154">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1154</a></em></p>
+<p>Removes the first element from an array and returns it.</p>
+<p><strong>Returns:</strong> <code>T</code>⎮<code>undefined</code></p>
+<hr>
+<p><a id="slice"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="slice"></a><a href="#slice" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>slice</h3>
+<p>► <strong>slice</strong>(start?: <em><code>number</code></em>, end?: <em><code>number</code></em>): <code>T</code>[]</p>
+<p><em>Inherited from Array.slice</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1160">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1160</a></em></p>
+<p>Returns a section of an array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>start</td><td><code>number</code></td><td>The beginning of the specified portion of the array.</td></tr>
+<tr><td>end</td><td><code>number</code></td><td>The end of the specified portion of the array.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="some"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="some"></a><a href="#some" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>some</h3>
+<p>► <strong>some</strong>(callbackfn: <em><code>function</code></em>, thisArg?: <em><code>any</code></em>): <code>boolean</code></p>
+<p><em>Inherited from Array.some</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1207">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1207</a></em></p>
+<p>Determines whether the specified callback function returns true for any element of an array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>callbackfn</td><td><code>function</code></td><td>A function that accepts up to three arguments. The some method calls the callbackfn function for each element in array1 until the callbackfn returns true, or until the end of the array.</td></tr>
+<tr><td>thisArg</td><td><code>any</code></td><td>An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>boolean</code></p>
+<hr>
+<p><a id="sort"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="sort"></a><a href="#sort" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sort</h3>
+<p>► <strong>sort</strong>(compareFn?: <em><code>function</code></em>): <code>this</code></p>
+<p><em>Inherited from Array.sort</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1165">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1165</a></em></p>
+<p>Sorts an array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>compareFn</td><td><code>function</code></td><td>The name of the function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>this</code></p>
+<hr>
+<p><a id="splice"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="splice"></a><a href="#splice" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>splice</h3>
+<p>► <strong>splice</strong>(start: <em><code>number</code></em>, deleteCount?: <em><code>number</code></em>): <code>T</code>[]</p>
+<p>► <strong>splice</strong>(start: <em><code>number</code></em>, deleteCount: <em><code>number</code></em>, ...items: <em><code>T</code>[]</em>): <code>T</code>[]</p>
+<p><em>Inherited from Array.splice</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1171">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1171</a></em></p>
+<p>Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>start</td><td><code>number</code></td><td>The zero-based location in the array from which to start removing elements.</td></tr>
+<tr><td>deleteCount</td><td><code>number</code></td><td>The number of elements to remove.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<p><em>Inherited from Array.splice</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1178">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1178</a></em></p>
+<p>Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>start</td><td><code>number</code></td><td>The zero-based location in the array from which to start removing elements.</td></tr>
+<tr><td>deleteCount</td><td><code>number</code></td><td>The number of elements to remove.</td></tr>
+<tr><td>items</td><td><code>T</code>[]</td><td>Elements to insert into the array in place of the deleted elements.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="splicewitharray"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="splicewitharray"></a><a href="#splicewitharray" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>spliceWithArray</h3>
+<p>► <strong>spliceWithArray</strong>(index: <em><code>number</code></em>, deleteCount?: <em><code>number</code></em>, newItems?: <em><code>T</code>[]</em>): <code>T</code>[]</p>
+<p><em>Inherited from IObservableArray.spliceWithArray</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts#L5">/Volumes/DATA/projects/graphstore/node_modules/mobx/lib/types/observablearray.d.ts:5</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>index</td><td><code>number</code></td><td>-</td></tr>
+<tr><td>deleteCount</td><td><code>number</code></td><td>-</td></tr>
+<tr><td>newItems</td><td><code>T</code>[]</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>T</code>[]</p>
+<hr>
+<p><a id="tolocalestring"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="tolocalestring"></a><a href="#tolocalestring" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toLocaleString</h3>
+<p>► <strong>toLocaleString</strong>(): <code>string</code></p>
+<p><em>Inherited from Array.toLocaleString</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1122">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1122</a></em></p>
+<p>Returns a string representation of an array. The elements are converted to string using thier toLocalString methods.</p>
+<p><strong>Returns:</strong> <code>string</code></p>
+<hr>
+<p><a id="tostring"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="tostring"></a><a href="#tostring" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toString</h3>
+<p>► <strong>toString</strong>(): <code>string</code></p>
+<p><em>Inherited from Array.toString</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1118">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1118</a></em></p>
+<p>Returns a string representation of an array.</p>
+<p><strong>Returns:</strong> <code>string</code></p>
+<hr>
+<p><a id="unshift"></a></p>
+<h3><a class="anchor" aria-hidden="true" name="unshift"></a><a href="#unshift" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>unshift</h3>
+<p>► <strong>unshift</strong>(...items: <em><code>T</code>[]</em>): <code>number</code></p>
+<p><em>Inherited from Array.unshift</em></p>
+<p><em>Defined in <a href="http://github.com/@besync/graphstore/packages/graphstore/src//Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts#L1183">/Volumes/DATA/projects/graphstore/node_modules/typedoc/node_modules/typescript/lib/lib.es6.d.ts:1183</a></em></p>
+<p>Inserts new elements at the start of an array.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>items</td><td><code>T</code>[]</td><td>Elements to insert at the start of the Array.</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>number</code></p>
+<hr>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="api-interfaces-igraphstore-igraphstorestatus.html">← IGraphStoreStatus</a><a class="docs-next button" href="api-interfaces-persistentmodelobservable-ienhancedobservabledelegate.html">IEnhancedObservableDelegate →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/graphstore/" class="nav-home"><img src="/graphstore/img/graphstore-wt80.svg" alt="GraphStore" width="66" height="58"/></a><div><h5>Docs</h5><a href="/graphstore/docs/en/introduction.html">Getting Started</a><a href="/graphstore/docs/en/api-readme.html">API Reference</a></div><div><h5>Community</h5><a href="/graphstore/en/users.html">User Showcase</a><a href="https://stackoverflow.com/search?q=@besync/graphstore" target="_blank">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/besync/graphstore">GitHub</a><a class="github-button" href="https://github.com/besync/graphstore" data-icon="octicon-star" data-count-href="/besync/graphstore/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://github.com/besync" target="_blank" class="fbOpenSource"><img src="/graphstore/img/oss_logo.png" alt="Sync Health Labs Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2018 Sync Health Labs</section></footer></div></body></html>

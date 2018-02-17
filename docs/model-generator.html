@@ -1,0 +1,81 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Generating the Model · GraphStore</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Generating the Model · GraphStore"/><meta property="og:type" content="website"/><meta property="og:url" content="https://besync.github.io/graphstore/index.html"/><meta property="og:description" content="[`@besync/graphstore-dev`](https://github.com/besync/graphstore-dev) contains several automatic code generators.  It converts GraphQL style database schema into to typescript code that drops right into [`@besync/graphstore`](https://github.com/besync/graphstore)"/><link rel="shortcut icon" href="/graphstore/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/graphstore/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/graphstore/"><img class="logo" src="/graphstore/img/graphstore-wt.svg"/><h2 class="headerTitle">GraphStore</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/graphstore/docs/introduction.html" target="_self">Docs</a></li><li><a href="/graphstore/docs/api-readme.html" target="_self">API</a></li><li><a href="/graphstore/en/help.html" target="_self">Help</a></li><li><a href="https://github.com/besync/graphstore" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Code Generators</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>The Basics</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/introduction.html">Introduction</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/documents-collections.html">Documents and Collections</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/stores-models.html">Models and Stores</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/schema.html">Schemas</a></li></ul></div><div class="navGroup navGroupActive"><h3>Guides</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide.html">Installation</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-connect.html">Connecting a database</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-get.html">Fetching data</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-observe.html">Observing changes in the UI</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-update.html">Update / Delete / Create Actions</a></li></ul></div><div class="navGroup navGroupActive"><h3>Code Generators</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/schema-generator.html">Generating the Schema</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/graphstore/docs/model-generator.html">Generating the Model</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Generating the Model</h1></header><article><div><span><p><a href="https://github.com/besync/graphstore-dev"><code>@besync/graphstore-dev</code></a> contains several automatic code generators.  It converts GraphQL style database schema into to typescript code that drops right into <a href="https://github.com/besync/graphstore"><code>@besync/graphstore</code></a></p>
+<p>The GraphQL parsing is accomplished with the robust <a href="https://www.npmjs.com/package/graphql-tag"><code>graphql-tag</code></a> library and the Facebook reference <a href="https://www.npmjs.com/package/graphql"><code>graphql</code></a> implementation.  So this part of the generator should be stable across a wide range of schema.</p>
+<blockquote>
+<p>Tip: we suggest adding the <code>graphstore-dev graphql</code> command line (see below) to your regular development workflow so that adding fields/types to the schema is a simple one file edit and build.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" name="example-input-graphql-schema"></a><a href="#example-input-graphql-schema" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example input (GraphQL schema)</h2>
+<p>We use GraphQL for the schema with custom decorators simply as a lingua franca; it does not imply that the server or the client libraries use GraphQL (although they certainly can be!).  It provides an easy way to represent both traditional relational models as well as modern graph contexts.</p>
+<p>We don't require or interpret all the GraphQL boiler-plate, but focus on the <code>type</code> objects and <code>enums</code>.</p>
+<pre><code class="hljs css graphql"><span class="hljs-selector-tag">type</span> <span class="hljs-selector-tag">User</span> 
+     @<span class="hljs-selector-tag">connector</span>(<span class="hljs-attribute">byId</span>: <span class="hljs-string">"(id) =&gt; getDocument('users/${id}')"</span>)
+    {
+        <span class="hljs-attribute">id</span>: UserId! <span class="hljs-variable">@primary</span>,
+        <span class="hljs-attribute">email</span>: String!,
+        <span class="hljs-attribute">profile_picture</span>: String!,
+        <span class="hljs-attribute">username</span>: String!
+        <span class="hljs-attribute">userPosts</span>: [UserPost] <span class="hljs-variable">@resolver</span>(<span class="hljs-attribute">get</span>: <span class="hljs-string">"UserPostsForUser(id)"</span>)
+    }
+
+<span class="hljs-selector-tag">enum</span> <span class="hljs-selector-tag">EnumPeriod</span> 
+    {
+        <span class="hljs-selector-tag">allTime</span>,
+        <span class="hljs-selector-tag">day</span>,
+        <span class="hljs-selector-tag">week</span>,
+        <span class="hljs-selector-tag">month</span>,
+        <span class="hljs-selector-tag">quarter</span>,
+        <span class="hljs-selector-tag">year</span>
+    }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" name="example-generated-output-typescript"></a><a href="#example-generated-output-typescript" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example generated output (TypeScript)</h2>
+<pre><code class="hljs css js"><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Model</span> 
+</span>{
+
+    @primary @observable id: string;
+    @observable email: string;
+    @observable profile_picture: string;
+    @observable username: string;
+    @resolver get userPosts(): UserPost[] { <span class="hljs-keyword">return</span> UserPostStore.getUserPostsForUser(<span class="hljs-keyword">this</span>.id); };
+
+    protected <span class="hljs-keyword">static</span> Store: <span class="hljs-keyword">typeof</span> Store = UserStore;
+
+    <span class="hljs-keyword">constructor</span> (defaults: {id: string, [extra: string]: any }, ...args) { <span class="hljs-keyword">super</span>(defaults, ...args); } 
+
+}
+
+<span class="hljs-keyword">export</span> namespace enums {
+    <span class="hljs-keyword">export</span> enum EnumPeriod
+    {
+        allTime = <span class="hljs-string">"allTime"</span>,
+        day = <span class="hljs-string">"day"</span>,
+        week = <span class="hljs-string">"week"</span>,
+        month = <span class="hljs-string">"month"</span>,
+        quarter = <span class="hljs-string">"quarter"</span>,
+        year = <span class="hljs-string">"year"</span>
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" name="command-line-usage-graphql-to-typescript"></a><a href="#command-line-usage-graphql-to-typescript" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Command Line Usage (GraphQL to TypeScript)</h2>
+<pre><code class="hljs css bash">graphstore-dev graphql build/schema.graphql src/model.ts
+</code></pre>
+<p>See <a href="https://github.com/besync/graphstore-test-mockdata"><code>@besync/graphstore-test-mockdata</code></a> package.json for an example of where this is used in an npm script.</p>
+<h2><a class="anchor" aria-hidden="true" name="alternative-api-to-execute-the-generator-from-javascript-nodejs-or-equivalent-application"></a><a href="#alternative-api-to-execute-the-generator-from-javascript-nodejs-or-equivalent-application" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alternative API to execute the generator from Javascript Node.js or equivalent application</h2>
+<pre><code class="hljs css js"><span class="hljs-keyword">const</span> importJsonExportGraphQl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@besync/graphstore-dev'</span>).importJsonExportGraphQl,
+    importGraphQl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@besync/graphstore-dev'</span>).importGraphQl,
+    exportModelTs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@besync/graphstore-dev'</span>).exportModelTs;
+
+<span class="hljs-keyword">var</span> inputfile = path.resolve(__dirname, <span class="hljs-string">"../data/db-export.json"</span>);
+<span class="hljs-keyword">var</span> graphQLFile = path.resolve(__dirname, <span class="hljs-string">"../build/schema.graphql"</span>);
+<span class="hljs-keyword">var</span> modelTSFile = path.resolve(__dirname, <span class="hljs-string">"../src/model.ts"</span>);
+
+createDirectories(graphQLFile);
+createDirectories(modelTSFile);
+importJsonExportGraphQl(inputfile, graphQLFile);
+exportModelTs(modelTSFile, importGraphQl(graphQLFile));
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="schema-generator.html">← Generating the Schema</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/graphstore/" class="nav-home"><img src="/graphstore/img/graphstore-wt80.svg" alt="GraphStore" width="66" height="58"/></a><div><h5>Docs</h5><a href="/graphstore/docs/en/introduction.html">Getting Started</a><a href="/graphstore/docs/en/api-readme.html">API Reference</a></div><div><h5>Community</h5><a href="/graphstore/en/users.html">User Showcase</a><a href="https://stackoverflow.com/search?q=@besync/graphstore" target="_blank">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/besync/graphstore">GitHub</a><a class="github-button" href="https://github.com/besync/graphstore" data-icon="octicon-star" data-count-href="/besync/graphstore/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://github.com/besync" target="_blank" class="fbOpenSource"><img src="/graphstore/img/oss_logo.png" alt="Sync Health Labs Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2018 Sync Health Labs</section></footer></div></body></html>

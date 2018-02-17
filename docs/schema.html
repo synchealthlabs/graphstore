@@ -1,0 +1,102 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Schemas · GraphStore</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Schemas · GraphStore"/><meta property="og:type" content="website"/><meta property="og:url" content="https://besync.github.io/graphstore/index.html"/><meta property="og:description" content="Using a graph datastore that automatically tracks links between entities in the graph requires knowledge about the schema.  Its a reason why query languages such as GraphQL require a schema definition."/><link rel="shortcut icon" href="/graphstore/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/graphstore/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/graphstore/"><img class="logo" src="/graphstore/img/graphstore-wt.svg"/><h2 class="headerTitle">GraphStore</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/graphstore/docs/introduction.html" target="_self">Docs</a></li><li><a href="/graphstore/docs/api-readme.html" target="_self">API</a></li><li><a href="/graphstore/en/help.html" target="_self">Help</a></li><li><a href="https://github.com/besync/graphstore" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>The Basics</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>The Basics</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/introduction.html">Introduction</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/documents-collections.html">Documents and Collections</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/stores-models.html">Models and Stores</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/graphstore/docs/schema.html">Schemas</a></li></ul></div><div class="navGroup navGroupActive"><h3>Guides</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide.html">Installation</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-connect.html">Connecting a database</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-get.html">Fetching data</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-observe.html">Observing changes in the UI</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/guide-update.html">Update / Delete / Create Actions</a></li></ul></div><div class="navGroup navGroupActive"><h3>Code Generators</h3><ul><li class="navListItem"><a class="navItem" href="/graphstore/docs/schema-generator.html">Generating the Schema</a></li><li class="navListItem"><a class="navItem" href="/graphstore/docs/model-generator.html">Generating the Model</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Schemas</h1></header><article><div><span><p>Using a graph datastore that automatically tracks links between entities in the graph requires knowledge about the schema.  Its a reason why query languages such as GraphQL require a schema definition.</p>
+<p>Some realtime and NoSql databases such as Firebase have in the past relaxed the need for schemas, but we think we can have the best of both worlds.  Using such schema-less databases, but in the client applications, defining an extensible schema that contains at a minimum the keys of the relationship links.</p>
+<p>This is what GraphStore requires.   To keep things simple, the schema is defined using a single <code>.graphql</code> file that can be used to both generate the model used by GraphStore, as well as to create a production API GraphQL server etc.</p>
+<blockquote>
+<p>The good news is that if you are using Firebase you can generate this GraphQL like schema automatically from the raw data in the database using some of the tooling in <a href="https://github.com/beysnc/graphstore.dev">@besync/graphstore-dev</a>.    More on that next.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" name="example-schema"></a><a href="#example-schema" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Schema</h2>
+<pre><code class="hljs css graphql"><span class="hljs-selector-tag">type</span> <span class="hljs-selector-tag">Post</span> 
+     @<span class="hljs-selector-tag">connector</span>(<span class="hljs-attribute">byId</span>: <span class="hljs-string">"(id) =&gt; getDocument('posts/${id}')"</span>)
+     @<span class="hljs-selector-tag">connector</span>(<span class="hljs-attribute">All</span>: <span class="hljs-string">"() =&gt; getCollection('posts')"</span>)
+    {
+        <span class="hljs-attribute">id</span>: ID! <span class="hljs-variable">@primary</span>,
+        <span class="hljs-attribute">body</span>: String!,
+        <span class="hljs-attribute">starCount</span>: Int!,
+        <span class="hljs-attribute">stars</span>: [Json!] <span class="hljs-variable">@json</span>(<span class="hljs-attribute">id</span>: <span class="hljs-string">"User!"</span>, <span class="hljs-attribute">value</span>: <span class="hljs-string">"Boolean!"</span>),
+        <span class="hljs-attribute">title</span>: String!,
+        <span class="hljs-attribute">uid</span>: User!
+    }
+    
+<span class="hljs-selector-tag">type</span> <span class="hljs-selector-tag">UserPost</span> 
+     @<span class="hljs-selector-tag">connector</span>(<span class="hljs-attribute">byId</span>: <span class="hljs-string">"(user_id, id) =&gt; getDocument('userPosts/${user_id}/${id}')"</span>)
+     @<span class="hljs-selector-tag">connector</span>(<span class="hljs-attribute">UserPostsForUser</span>: <span class="hljs-string">"(user_id) =&gt; getCollection('userPosts/${user_id}')"</span>)
+    {
+        <span class="hljs-attribute">user</span>: User! <span class="hljs-variable">@foreign</span> <span class="hljs-variable">@primary</span>,
+        <span class="hljs-attribute">id</span>: ID! <span class="hljs-variable">@primary</span>,
+        <span class="hljs-attribute">body</span>: String!,
+        <span class="hljs-attribute">starCount</span>: Int!,
+        <span class="hljs-attribute">stars</span>: [Json!] <span class="hljs-variable">@json</span>(<span class="hljs-attribute">id</span>: <span class="hljs-string">"UserId!"</span>, <span class="hljs-attribute">value</span>: <span class="hljs-string">"Boolean!"</span>),
+        <span class="hljs-attribute">title</span>: String!,
+        <span class="hljs-attribute">uid</span>: User!
+    }
+
+<span class="hljs-selector-tag">type</span> <span class="hljs-selector-tag">User</span> 
+     @<span class="hljs-selector-tag">connector</span>(<span class="hljs-attribute">byId</span>: <span class="hljs-string">"(id) =&gt; getDocument('users/${id}')"</span>)
+    {
+        <span class="hljs-attribute">id</span>: UserId! <span class="hljs-variable">@primary</span>,
+        <span class="hljs-attribute">email</span>: String!,
+        <span class="hljs-attribute">profile_picture</span>: String!,
+        <span class="hljs-attribute">username</span>: String!
+        <span class="hljs-attribute">userPosts</span>: [UserPost] <span class="hljs-variable">@resolver</span>(<span class="hljs-attribute">get</span>: <span class="hljs-string">"UserPostsForUser(id)"</span>)
+    }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="graphql-decorators"></a><a href="#graphql-decorators" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GraphQL Decorators</h3>
+<p>You'll notice a few custom decorators in the above GraphQL schema, supported by GraphStore:</p>
+<h4><a class="anchor" aria-hidden="true" name="primary"></a><a href="#primary" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@primary</h4>
+<p>Indicates that the field is part of the primary key;  one or more fields may be marked as primary.</p>
+<h4><a class="anchor" aria-hidden="true" name="foreign"></a><a href="#foreign" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@foreign</h4>
+<p>Indicates that the field is a foreign key in a 1-1 (or many-1) relationship.</p>
+<blockquote>
+<p>The magic of GraphStore is that these fields are abstracted so that one can just refer to <code>userPost.user</code> and GraphStore will automatically use the <code>user_id</code> field in <code>UserPost</code> to lookup the corresponding <code>User</code> and populate this as a deep object within the <code>userPost</code> object.   GraphStore will handle the subscriptions, update reactions, and unsubscriptions automatically.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" name="connector"></a><a href="#connector" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@connector</h4>
+<p>The <code>@connector</code> decriptor specifies the Get queries that can be performed on this type.   It includes a reference path to the underlying database such as Firebase.  GraphStore generally provides a <code>getDocument</code> and <code>getCollection</code> for all supported databases, and <code>@connector</code> just maps these appropriately.</p>
+<h4><a class="anchor" aria-hidden="true" name="resolver"></a><a href="#resolver" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@resolver</h4>
+<p>The <code>@resolver</code> is used to indicate 1-many foreign keys (in traditional relational databases) or the equivalent links in a graph database.  It provides the query (<code>@connector</code>) to use on the given foreign type.</p>
+<h2><a class="anchor" aria-hidden="true" name="example-model-generated-from-schema"></a><a href="#example-model-generated-from-schema" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example model generated from Schema</h2>
+<pre><code class="hljs css js"><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Model</span> 
+</span>{
+
+    @primary @observable id: string;
+    @observable body: string;
+    @observable starCount: int;
+    @observable @jsonfield stars: Post._Star[];
+    @observable title: string;
+    @observable uid: User;
+
+    protected <span class="hljs-keyword">static</span> Store: <span class="hljs-keyword">typeof</span> Store = PostStore;
+
+    <span class="hljs-keyword">constructor</span> (defaults: {id: string, [extra: string]: any }, ...args) { <span class="hljs-keyword">super</span>(defaults, ...args); } 
+
+}
+
+<span class="hljs-keyword">export</span> namespace Post {
+    <span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_Star</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Submodel</span>
+    </span>{
+    @observable id: User;
+    @observable item_value: boolean;
+    }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Model</span> 
+</span>{
+
+    @primary @observable id: string;
+    @observable email: string;
+    @observable profile_picture: string;
+    @observable username: string;
+    @resolver get userPosts(): UserPost[] { <span class="hljs-keyword">return</span> UserPostStore.getUserPostsForUser(<span class="hljs-keyword">this</span>.id); };
+
+    protected <span class="hljs-keyword">static</span> Store: <span class="hljs-keyword">typeof</span> Store = UserStore;
+
+    <span class="hljs-keyword">constructor</span> (defaults: {id: string, [extra: string]: any }, ...args) { <span class="hljs-keyword">super</span>(defaults, ...args); } 
+
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="stores-models.html">← Models and Stores</a><a class="docs-next button" href="guide.html">Installation Guide →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/graphstore/" class="nav-home"><img src="/graphstore/img/graphstore-wt80.svg" alt="GraphStore" width="66" height="58"/></a><div><h5>Docs</h5><a href="/graphstore/docs/en/introduction.html">Getting Started</a><a href="/graphstore/docs/en/api-readme.html">API Reference</a></div><div><h5>Community</h5><a href="/graphstore/en/users.html">User Showcase</a><a href="https://stackoverflow.com/search?q=@besync/graphstore" target="_blank">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/besync/graphstore">GitHub</a><a class="github-button" href="https://github.com/besync/graphstore" data-icon="octicon-star" data-count-href="/besync/graphstore/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://github.com/besync" target="_blank" class="fbOpenSource"><img src="/graphstore/img/oss_logo.png" alt="Sync Health Labs Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2018 Sync Health Labs</section></footer></div></body></html>

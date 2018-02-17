@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="300" height="200" viewBox="0, 0, 300, 200">
+  <g id="Layer_1">
+    <path d="M0,-0 L229.65,-0 L229.65,200 L0,200 L0,-0 z" fill="#66667F"/>
+    <path d="M186.576,-0 L300,-0 L300,200 L186.576,200 L186.576,-0 z" fill="#28284A"/>
+    <path d="M232.854,55.75 L273.296,55.75 C277.786,55.75 281.425,61.631 281.425,68.885 L281.425,83.115 C281.425,90.369 277.786,96.25 273.296,96.25 L232.854,96.25 C228.365,96.25 224.725,90.369 224.725,83.115 L224.725,68.885 C224.725,61.631 228.365,55.75 232.854,55.75 z" fill="#760000"/>
+    <text transform="matrix(1, 0, 0, 1, 253.075, 78.5)">
+      <tspan x="-16.85" y="5.5" font-family="Karla-Bold" font-size="24" fill="#FFFFFF">UI</tspan>
+    </text>
+    <path d="M54.325,34.5 L160.325,34.5 C166.952,34.5 172.325,39.873 172.325,46.5 L172.325,124.5 C172.325,131.127 166.952,136.5 160.325,136.5 L54.325,136.5 C47.698,136.5 42.325,131.127 42.325,124.5 L42.325,46.5 C42.325,39.873 47.698,34.5 54.325,34.5 z" fill-opacity="0" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M82.475,118 L183.975,118 L183.975,146.5 L82.475,146.5 L82.475,118 z" fill="#66667F"/>
+    <text transform="matrix(1, 0, 0, 1, 140.125, 147)">
+      <tspan x="-43.85" y="-7" font-family="Karla-Bold" font-size="24" fill="#FFFCFC">ACTION</tspan>
+    </text>
+    <path d="M27.575,53.5 L67.075,53.5 L67.075,98.5 L27.575,98.5 L27.575,53.5 z" fill="#66667F"/>
+    <path d="M30.575,57.5 L90.275,57.5 C96.902,57.5 102.275,62.873 102.275,69.5 L102.275,82.5 C102.275,89.127 96.902,94.5 90.275,94.5 L30.575,94.5 C23.948,94.5 18.575,89.127 18.575,82.5 L18.575,69.5 C18.575,62.873 23.948,57.5 30.575,57.5 z" fill="#760000"/>
+    <text transform="matrix(1, 0, 0, 1, 69.381, 78.5)">
+      <tspan x="-37.35" y="5.5" font-family="Karla-Bold" font-size="24" fill="#FFFFFF">store</tspan>
+    </text>
+    <g>
+      <path d="M42.325,46.5 L42.325,45" fill-opacity="0" stroke="#FFFFFF" stroke-width="1"/>
+      <path d="M39.325,45 L42.325,53 L45.325,45 z" fill="#FFFFFF" fill-opacity="1" stroke="#FFFFFF" stroke-width="1" stroke-opacity="1"/>
+    </g>
+    <g>
+      <path d="M42.325,43.703 L42.325,47.797" fill-opacity="0" stroke="#FFFFFF" stroke-width="1"/>
+      <path d="M39.325,47.797 L42.325,55.797 L45.325,47.797 M42.325,47.797 L42.325,55.797" fill-opacity="0" stroke="#FFFFFF" stroke-width="1" stroke-opacity="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 175.191, 218.967)">
+      <tspan x="-163.641" y="-40" font-family="SourceSerifPro-ExtraLight" font-size="18" fill="#FFFCFC">what if the database was the store?</tspan>
+    </text>
+    <g>
+      <path d="M176.615,79 L194.196,79" fill-opacity="0" stroke="#7B7B9B" stroke-width="3" stroke-miterlimit="12"/>
+      <path d="M194.196,83.2 L205.396,79 L194.196,74.8 M194.196,79 L205.396,79" fill-opacity="0" stroke="#7B7B9B" stroke-width="3" stroke-opacity="1"/>
+    </g>
+  </g>
+</svg>
