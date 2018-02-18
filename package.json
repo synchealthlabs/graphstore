@@ -4,7 +4,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "rimraf packages/**/lib && rimraf packages/**/build",
     "prepare": "lerna run prepare --scope @besync/graphstore && lerna run prepare",
-    "prepublishOnly": "npm run clean && lerna run dist --scope @besync/graphstore && lerna run dist",
+    "prepublish": "npm run clean && lerna run dist --scope @besync/graphstore && lerna run dist",
     "publish": "lerna publish",
     "pretest": "lerna run pretest",
     "test": "./node_modules/jest/bin/jest.js --config ./jest.config.json --verbose --runInBand",
