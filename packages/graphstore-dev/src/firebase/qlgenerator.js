@@ -92,7 +92,7 @@ const fieldTemplate = (key, value) => {
 }
 
 const jsonTemplate = (obj, isnested) => {
-    if (typeof(obj) !== 'object') return obj;
+    if (typeof(obj) !== 'object') return JSON.stringify(obj);
 
     return Object.keys(obj).map(function (key) {
         let value = obj[key];
@@ -104,9 +104,9 @@ const jsonTemplate = (obj, isnested) => {
                 return `${key}: "${value}"`;
         }
         else if (Array.isArray(value) && !isnested)
-            return key +": \"[Json!] @json([{" + jsonTemplate(value[0], true).replace(/"/g, "'") + "}])\"";
+            return key +": \"[Json!] @json(" + jsonTemplate(value[0], true).replace(/"/g, "'") + ")\"";
         else if (typeof value == "object" && !isnested)
-             return key + ": \"Json! @json({" + jsonTemplate(value, true).replace(/"/g, "'") + "})\"";
+             return key + ": \"Json! @json(" + jsonTemplate(value, true).replace(/"/g, "'") + ")\"";
         else
             return `${key}: "${util.inspect(obj[key])}"`; 
     }).join(", ");
@@ -305,8 +305,10 @@ function mapOrgUser(key, value, isnested) {
         return "[Json!] @json(" + jsonTemplate(fixUserOrg(value[0], true)) + ")";
     else if (typeof value == "object" && !isnested)
         return "Json! @json(" + jsonTemplate(fixUserOrg(value, true)) + ")";
+    else if (typeof value == "object" && Array.isArray(value))
+        return "[Json]! @json(" + JSON.stringify(value[0]).replace(/^{?\{?/g, '').replace(/}?$/g, '').replace(/"/g, "'") + ")";
     else if (typeof value == "object")
-        return "Json! @json(" + JSON.stringify(value).replace(/"/g, "'") + ")";
+        return "Json! @json(" + JSON.stringify(value).replace(/^{?\{?/g, '').replace(/}?$/g, '').replace(/"/g, "'") + ")";
     else
         return value
 }

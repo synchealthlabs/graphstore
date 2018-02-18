@@ -26,5 +26,5 @@ var graphQLFile = path.resolve(__dirname, "../build/schema.graphql");
 var modelTSFile = path.resolve(__dirname, "../build/model.ts");
 createDirectories(graphQLFile);
 createDirectories(modelTSFile);
- importJsonExportGraphQl(inputfile, graphQLFile);
- // exportModelTs(modelTSFile, importGraphQl(graphQLFile));
+ //importJsonExportGraphQl(inputfile, graphQLFile);
+  exportModelTs(modelTSFile, importGraphQl(graphQLFile));

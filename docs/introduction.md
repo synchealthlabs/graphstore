@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Graphstore
+title: GraphStore
 sidebar_label: Introduction
 ---
 

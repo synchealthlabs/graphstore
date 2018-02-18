@@ -440,12 +440,11 @@ module.exports.default = function (inputfile, outputfile) {
 
         fifthresult = Object.assign(fifthresult, enums);
 
-
-          fs.writeFileSync("./build/db-export.schema1", util.inspect(result, { showHidden: false, depth: null }));
-          fs.writeFileSync("./build/db-export.schema2", util.inspect(secondresult, { showHidden: false, depth: null }));
-          fs.writeFileSync("./build/db-export.schema3", util.inspect(thirdresult, { showHidden: false, depth: null }));
-          fs.writeFileSync("./build/db-export.schema4", util.inspect(fourthresult, { showHidden: false, depth: null }));
-          fs.writeFileSync("./build/db-export.schema.json", JSON.stringify(fifthresult, null, 2));
+        //  fs.writeFileSync("./build/db-export.schema1", util.inspect(result, { showHidden: false, depth: null }));
+        //  fs.writeFileSync("./build/db-export.schema2", util.inspect(secondresult, { showHidden: false, depth: null }));
+        //  fs.writeFileSync("./build/db-export.schema3", util.inspect(thirdresult, { showHidden: false, depth: null }));
+        //  fs.writeFileSync("./build/db-export.schema4", util.inspect(fourthresult, { showHidden: false, depth: null }));
+        //  fs.writeFileSync("./build/db-export.schema.json", JSON.stringify(fifthresult, null, 2));
 
         var schema = generator(fifthresult);
 
