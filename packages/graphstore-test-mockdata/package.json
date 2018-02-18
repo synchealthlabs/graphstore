@@ -1,6 +1,6 @@
 {
   "name": "@besync/graphstore-test-mockdata",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "mobx mock data store",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

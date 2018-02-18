@@ -1,6 +1,6 @@
 {
   "name": "@besync/graphstore-dev",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Generate GraphQL Schema and @besync/graphstore Model from Firebase realtime database",
   "main": "src/index.js",
   "bin": {
