@@ -27,9 +27,6 @@
     "type": "git",
     "url": "https://github.com/besync/graphstore.git"
   },
-  "devDependencies": {
-    "typescript": "^2.7.1"
-  },
   "publishConfig": {
     "access": "public"
   }

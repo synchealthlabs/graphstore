@@ -1,8 +1,7 @@
 import 'reflect-metadata';
 import { enhancedObservable, enhancedObservableArray, IEnhancedObservableArray, IEnhancedObservableDelegate, toJS, toJS_Primary, toJS_nonPrimary, toJS_Tracked, makeNonEnumerable } from './PersistentModelObservable';
-import { observable as mobx_observable, computed as mobx_computed, reaction, action, untracked, Atom, IObservableValue } from 'mobx';
+import { observable as mobx_observable, reaction, action, untracked } from 'mobx';
 import { IGraphStore, SourceType, IGraphStoreStatus } from './IGraphStore';
-import { GraphStoreMemory } from './GraphStoreMemory';
 
 export { computed as resolver } from 'mobx';
 export { toJS, push, IEnhancedObservableArray } from './PersistentModelObservable';

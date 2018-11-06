@@ -1,6 +1,6 @@
 
 import { useStrict as MobxUseStrict, autorun, action, reaction, IReactionDisposer } from 'mobx';
-import { Model, GraphStoreFirebase, GraphStore, IFireDatabase, GraphStoreMemory, toJS, push, IEnhancedObservableArray } from '@besync/graphstore';
+import { Model, GraphStoreFirebase, IFireDatabase, GraphStoreMemory, toJS, push, IEnhancedObservableArray } from '@besync/graphstore';
 import { stores, enums, OrgUser, mockData } from '@besync/graphstore-test-mockdata';
 import * as fs from 'fs';
 import * as path from 'path';

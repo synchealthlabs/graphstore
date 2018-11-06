@@ -1,5 +1,5 @@
 import { action, IObservableArray } from 'mobx';
-import { IGraphStoreStatus, SourceType, IGraphStore } from './IGraphStore';
+import { IGraphStoreStatus, IGraphStore } from './IGraphStore';
 
 // FIREBASE API SURFACE USED (V3)
 

@@ -1,4 +1,4 @@
-import { observable, extras, IObservableArray, IObservableValue, isObservableArray, untracked, toJS as mobx_toJS, BaseAtom } from 'mobx';
+import { observable, extras, IObservableArray, isObservableArray, untracked, toJS as mobx_toJS, BaseAtom } from 'mobx';
 
 /** 
  * An observable collection in @besync/GraphStore;  it extends the MobX observable array

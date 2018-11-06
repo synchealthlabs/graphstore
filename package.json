@@ -19,21 +19,21 @@
     "website:rename-version": "cd website && ../node_modules/.bin/docusaurus-rename-version && cd .."
   },
   "devDependencies": {
-    "@types/jest": "^22.1.2",
-    "@types/node": "^8.0.0",
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.2",
     "@types/to-markdown": "^3.0.0",
-    "docusaurus": "^1.0.6",
-    "firebase-admin": "^5.8.2",
+    "docusaurus": "^1.5.1",
+    "firebase-admin": "^6.1.0",
     "gulp": "^3.9.1",
-    "gulp-filelist": "^1.0.0",
+    "gulp-filelist": "^1.1.1",
     "gulp-typedoc": "^2.2.0",
-    "jest": "^22.2.2",
-    "lerna": "^2.8.0",
+    "jest": "^23.6.0",
+    "lerna": "^3.4.3",
     "rimraf": "^2.6.2",
-    "typedoc": "^0.10.0",
+    "typedoc": "^0.13.0",
     "typedoc-plugin-docusaurus": "^1.0.14",
     "typedoc-plugin-sourcefile-url": "^1.0.3",
-    "typescript": "^2.7.1"
+    "typescript": "^2.9.0"
   },
   "license": "Apache-2.0",
   "workspaces": [
