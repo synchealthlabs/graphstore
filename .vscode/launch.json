@@ -7,6 +7,15 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Lint Tests",
+            "program": "${workspaceRoot}/node_modules/@berun/scripts/scripts/cmd.js",
+            "cwd": "${workspaceFolder}/packages/graphstore-iframe",
+            "args": ["lint"],
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "DocGen",
             "program": "${workspaceFolder}/website/scripts/gulpfile.js",
         },

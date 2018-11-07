@@ -1,5 +1,9 @@
 {
+  /* this file generally used for IDE such as Visual Studio Code only 
+  use tsconfig.build.json when building */
+  "extends": "./../../tsconfig.json",
   "compilerOptions": {
+    "rootDirs": ["src", "src/__tests__"],
     "module": "esnext",
     "target": "esnext",
     "lib": ["esnext", "dom"],
@@ -7,26 +11,6 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "outDir": "build",
-    "rootDir": "src",
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "esModuleInterop": true
-  },
-  "exclude": [
-    "config",
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts"
-  ]
+    "outDir": "build"
+  }
 }

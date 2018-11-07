@@ -58,10 +58,12 @@ export interface IEnhancedObservableDelegate {
 export function enhancedObservable(data: any, delegate: IEnhancedObservableDelegate): any {
 	let o;
 
-	if (data !== null && typeof data == 'object')
+	if (data !== null && typeof data == 'object') {
 		o = observable.map(data);
-	else
+	}
+	else {
 		o = observable(data);
+	}
 
 	const atom = extras.getAtom(o) as BaseAtom;
 	const onBecomeUnobserved = atom.onBecomeUnobserved;
@@ -181,7 +183,7 @@ export function toJS(source, detectCycles: boolean = true, __alreadySeen: [any, 
 		const res = []
 		const toAdd = source.map(value => toJS(value, detectCycles, __alreadySeen))
 		res.length = toAdd.length
-		for (let i = 0, l = toAdd.length; i < l; i++) res[i] = toAdd[i]
+		for (let i = 0, l = toAdd.length; i < l; i++) { res[i] = toAdd[i] }
 		return res
 	}
 
@@ -244,8 +246,9 @@ export function toJS_Primary(source, primaryKeys: string[]) {
 */
 export function push<T>(source: IEnhancedObservableArray<T>): T {
 
-	if (!source.exists)
+	if (!source.exists) {
 		throw new Error("Enhanced Observable array is not found or invalid")
+	}
 
 	if (isEnhancedObservableArray(source)) {
 		return source.create();

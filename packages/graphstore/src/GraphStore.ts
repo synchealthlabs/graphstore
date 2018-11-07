@@ -79,7 +79,7 @@ export class GraphStore implements IGraphStore {
                     model.loading = false;
                     model._isDirty = false;
                 } else {
-                    if (!(typeof data == 'object')) data = { "item_value": data };
+                    if (!(typeof data == 'object')) { data = { "item_value": data }; }
 
                     data = Object["assign"](data, keys);
 
@@ -130,8 +130,9 @@ export class GraphStore implements IGraphStore {
             items.forEach((newitem) => {
 
                 let olditem = modelCollection.find((item) => primaryKeys.every((key) => newitem[key] == item[key].toString()));
-                if (olditem === undefined)
+                if (olditem === undefined) {
                     throw new Error('404 Database updated record that was not found');
+                }
 
                 Object.getOwnPropertyNames(newitem).forEach((key) => { olditem[key] = newitem[key] });
                 // olditem.exists = true;
@@ -149,7 +150,7 @@ export class GraphStore implements IGraphStore {
             let items = arrayObjecttToFlatArray(snapshot, keys, primaryKeys);
             items.forEach((newitem) => {
                 let olditem = modelCollection.find((item) => primaryKeys.every((key) => newitem[key] == item[key].toString()));
-                if (olditem === undefined) throw new Error('404 Database deleted record that was not found');
+                if (olditem === undefined) { throw new Error('404 Database deleted record that was not found'); }
                 modelCollection.remove(olditem);
                 olditem.keys().forEach((key) => { this[key] = null; });
                 olditem.exists = false;
@@ -185,22 +186,28 @@ export class GraphStore implements IGraphStore {
 
         let ref = this.db.ref(path);
 
-        if (!deleted)
+        if (!deleted) {
             ref.update(update_value, action((a: Error) => {
                 status.executing = false;
-                if (a)
+                if (a) {
                     status.error = a;
-                else
+                }
+                else {
                     status.success = true;
+                }
             }));
-        else
+        }
+        else {
             ref.remove(action((a: Error) => {
                 status.executing = false;
-                if (a)
+                if (a) {
                     status.error = a;
-                else
+                }
+                else {
                     status.success = true;
+                }
             }));
+        }
     }
 
 }
@@ -215,7 +222,7 @@ function arrayObjecttToFlatArray(snapshot: IFireDatabaseSnapshot, keys: any, all
     let resultArray = [];
     let currentKey = Object.keys(keys).length;
 
-    if (currentKey >= allPrimaryKeys.length) throw new Error("Tried to create collection when entire primary key is known");
+    if (currentKey >= allPrimaryKeys.length) { throw new Error("Tried to create collection when entire primary key is known"); }
 
     let nextPrimaryKey = allPrimaryKeys[currentKey];
 
@@ -233,7 +240,7 @@ function flatMap(resultArray: any[], precedingKeys: any, objectToMap: any, allPr
 
     if (currentKey >= allPrimaryKeys.length) {
         let result = objectToMap;
-        if (typeof result !== 'object') result = { "item_value": objectToMap }
+        if (typeof result !== 'object') { result = { "item_value": objectToMap } }
 
         result = Object["assign"]({}, precedingKeys, result);
         resultArray.push(result);

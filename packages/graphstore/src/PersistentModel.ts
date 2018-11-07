@@ -105,7 +105,7 @@ export class Model implements IEnhancedObservableDelegate {
     addObserver() {
         if (!this._graphStore) { return; }
         const observers = ++this._observedRefCount;
-        if (observers == 1) this.inUse();
+        if (observers == 1) { this.inUse(); }
     }
 
     /**
@@ -116,11 +116,11 @@ export class Model implements IEnhancedObservableDelegate {
     releaseObserver() {
         if (!this._graphStore) { return; };
         const observers = --this._observedRefCount;
-        if (observers == 0) this.notInUse();
+        if (observers == 0) { this.notInUse(); }
     }
 
     private inUse() {
-        if (this._isDirty) throw new Error("InUse: Founded database updates before first use");
+        if (this._isDirty) { throw new Error("InUse: Founded database updates before first use"); }
 
         var self = this;
 
@@ -136,13 +136,14 @@ export class Model implements IEnhancedObservableDelegate {
             (r) => self._isDirty,
             (truthy) => {
 
-                if (!truthy) return;
+                if (!truthy) { return; }
                 self._isDirty = false;
 
                 var data = toJS(self);
 
-                if (self._primaryKeys.filter((key) => data[key] == null).length > 0)
+                if (self._primaryKeys.filter((key) => data[key] == null).length > 0) {
                     throw new Error("All primary keys must be updated in a batch; at least one was null");
+                }
 
                 self._primaryKeys.filter((key) => data[key] !== null).forEach(key => delete data[key]);
 
@@ -365,10 +366,12 @@ export function observable(target: any, propName: string) {
             if (this.$emobx[propName] === undefined) {
                 this.$emobx[propName] = enhancedObservable(null, this);
             }
-            if (!this.$emobx[propName].toJS)
+            if (!this.$emobx[propName].toJS) {
                 return this.$emobx[propName].get();
-            else
+            }
+            else {
                 return this.$emobx[propName].toJS();
+            }
         },
         set: function (v) {
             this._isDirty = true;
@@ -380,8 +383,9 @@ export function observable(target: any, propName: string) {
                     this.$emobx[propName].set(v);
                 }
             }
-            else
+            else {
                 this.$emobx[propName] = enhancedObservable(v, this);
+            }
         }
     });
 }

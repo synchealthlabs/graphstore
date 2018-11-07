@@ -5,6 +5,9 @@ module.exports = {
     '@berun/preset-react',
     '@berun/runner-tslint',
     '@berun/runner-prettier',
-    runnerIframe
+    runnerIframe,
+    berun => {
+      berun.webpack.bail(true)
+    }
   ]
 }

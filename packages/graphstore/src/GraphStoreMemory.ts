@@ -175,7 +175,7 @@ export class MemoryDatabase implements IFireDatabase {
 
                 let result = deepFind(this.data, subscriptionPath);
 
-                if (!(typeof result == 'object')) result = { "item_value": result };
+                if (!(typeof result == 'object')) { result = { "item_value": result }; }
 
                 if (subscriptionPath.length < path.length) {
                     let remainingPath = path.substr(subscriptionPath.length + 1);
@@ -186,8 +186,9 @@ export class MemoryDatabase implements IFireDatabase {
                 if (Object.keys(result).length == 1) {
                     let key = Object.keys(result)[0];
                     resultSnapshot = { key: key, val: () => result[key], result_DeleteMe: result[key] };
-                } else
+                } else {
                     throw new Error("Unexpectedly multiple keys found during Mock _update");
+                }
 
                 oldresult[subscriptionPath] = resultSnapshot;
 
@@ -229,7 +230,7 @@ export class MemoryDatabase implements IFireDatabase {
             } else {
                 let result = deepFind(this.data, subscriptionPath);
 
-                if (!(typeof result == 'object')) result = { "item_value": result };
+                if (!(typeof result == 'object')) { result = { "item_value": result }; }
 
                 if (subscriptionPath.length < path.length) {
                     let remainingPath = path.substr(subscriptionPath.length + 1);
@@ -239,17 +240,21 @@ export class MemoryDatabase implements IFireDatabase {
                 if (Object.keys(result).length == 1) {
                     let key = Object.keys(result)[0];
                     resultSnapshot = { key: key, val: () => result[key], result_DeleteMe: result[key] };
-                } else
+                } else {
                     throw new Error("Unexpectedly multiple keys found during Mock _update");
+                }
             }
 
             self.subscriptionsCollection[subscriptionPath].forEach((sink) => {
-                if (deleted)
+                if (deleted) {
                     sink.childRemoved(resultSnapshot);
-                else if (isAdded)
+                }
+                else if (isAdded) {
                     sink.childAdded(resultSnapshot);
-                else
+                     }
+                else {
                     sink.childUpdated(resultSnapshot);
+                     }
             });
         });
 
@@ -281,10 +286,12 @@ function deepFind(obj: any, path: string): any {
             current = current[paths[i]];
         }
     }
-    if (!(typeof current == 'object'))
+    if (!(typeof current == 'object')) {
         return current;
-    else
+    }
+    else {
         return JSON.parse(JSON.stringify(current));
+    }
 }
 
 /** 
@@ -314,8 +321,9 @@ function subsetFind(obj: any, path: string): any {
         }
     }
 
-    if (typeof current === 'object')
+    if (typeof current === 'object') {
         current = Object["assign"]({}, current);
+    }
 
     let result = current;
     for (i = paths.length - 1; i >= 0; --i) {
@@ -344,9 +352,10 @@ function deepUpdate(obj: any, path: string, update_value: any): boolean {
     for (i = 0; i < paths.length - 1; ++i) {
         parent = current;
         if (current[paths[i]] == undefined) {
-            if (update_value == null)
+            if (update_value == null) {
                 throw new Error("Item to delete not found in Database");
-            else current = current[paths[i]] = {}
+            }
+            else { current = current[paths[i]] = {} }
         } else {
             current = current[paths[i]];
         }
@@ -355,17 +364,19 @@ function deepUpdate(obj: any, path: string, update_value: any): boolean {
     i = paths.length - 1;
     key = paths[i];
     if (current[key] === undefined) {
-        if (update_value == null)
+        if (update_value == null) {
             throw new Error("Item to delete not found in Database");
+        }
     }
 
     if (update_value == null) {
         delete current[key];
-        if (Object.keys(current).length == 0)
+        if (Object.keys(current).length == 0) {
             delete parent[paths[paths.length - 2]];
+        }
 
     } else {
-        if (current[key] === undefined) isAdded = true;
+        if (current[key] === undefined) { isAdded = true; }
         current[key] = update_value;
     }
 

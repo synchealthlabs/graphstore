@@ -9,7 +9,7 @@ export const useFrame = (props, callback) => {
   useEffect(() => {
 
     const frameWin = (ref!.current!).contentWindow
-    if (!frameWin) return;
+    if (!frameWin) { return; }
    
     const channel = new Channel({ type: 'frame', peer: frameWin, targetOrigin: 'http://localhost:3000' })
 
