@@ -33,7 +33,7 @@
     "typedoc": "^0.13.0",
     "typedoc-plugin-docusaurus": "^1.0.14",
     "typedoc-plugin-sourcefile-url": "^1.0.3",
-    "typescript": "^2.9.0"
+    "typescript": "^3.1.6"
   },
   "license": "Apache-2.0",
   "workspaces": [

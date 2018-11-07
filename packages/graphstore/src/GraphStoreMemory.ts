@@ -1,7 +1,4 @@
-import { action, IObservableObject, IObservable, observable, ObservableMap } from 'mobx';
-import { IGraphStore, SourceType } from './IGraphStore';
 import { GraphStore, IFireDatabase, IFireDatabaseSnapshot } from './GraphStore';
-import { IObservableArray } from 'mobx/lib/types/observablearray';
 
 if (!String.prototype["startsWith"]) {
     String.prototype["startsWith"] = function (search, pos) {

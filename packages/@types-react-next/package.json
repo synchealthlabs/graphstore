@@ -1,0 +1,14 @@
+{
+    "name": "@types/react-next",
+    "version": "16.7.0",
+    "description": "TypeScript extensions for React",
+    "license": "MIT",
+    "main": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tinialabs/notebook.git"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typeScriptVersion": "3.1"
+}

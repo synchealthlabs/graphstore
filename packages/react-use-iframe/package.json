@@ -1,0 +1,21 @@
+{
+    "name": "react-use-iframe",
+    "version": "0.1.0",
+    "main": "src/index.ts",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/besync/graphstore"
+    },
+    "author": {
+      "name": "BeSync"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+       "@evecalm/message-hub": "^0.0.7",
+       "react-resize-detector": "^3.2.0"
+    },
+    "publishConfig": {
+      "access": "public"
+    }
+  }
+  
