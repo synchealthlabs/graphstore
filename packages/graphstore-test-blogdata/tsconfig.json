@@ -1,0 +1,9 @@
+{ /* this file generally used for IDE such as Visual Studio Code only 
+  use tsconfig.build.json when building */
+  "extends": "../../tsconfig.json",
+  "module": "esnext",
+  "target": "esnext",
+  "compilerOptions": {
+    "rootDirs": ["src", "src/__tests__"]
+  },
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@besync/graphstore-test-blogdata",
+  "version": "1.0.7",
+  "description": "mobx mock data store",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "data"
+  ],
+  "scripts": {
+    "graphql": "graphstore-dev graphql data/schema.graphql src/model.ts",
+    "dist": "tsc -p tsconfig.dist.json --pretty ",
+    "prepare": "tsc -p tsconfig.build.json --pretty"
+  },
+  "keywords": [
+    "mobx",
+    "firebase",
+    "orm"
+  ],
+  "author": "@guycreate, Sync Health Labs Open Source contributors",
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@besync/graphstore": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/besync/graphstore.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

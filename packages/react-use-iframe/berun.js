@@ -3,7 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (berun) => {
 
+  const ISPRODUCTION = process.env.NODE_ENV == 'production'
+
   berun.webpack.entry('frame')
+    .when(!ISPRODUCTION, entry =>
+      entry.add(require.resolve('react-dev-utils/webpackHotDevClient'))
+    )
     .add(path.join(berun.options.paths.appSrc, 'frame'))
     .end()
 
@@ -16,7 +21,7 @@ module.exports = (berun) => {
     .end()
 
   berun.webpack.optimization
-    .splitChunks({ chunks: 'initial', name: 'commons' })
+    .when(ISPRODUCTION, optimization =>  optimization.splitChunks({ chunks: 'initial', name: 'commons' }))
     .runtimeChunk(false)
 
   berun.webpack.plugin('htmlframe')

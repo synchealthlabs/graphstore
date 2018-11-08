@@ -10,9 +10,9 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@berun/preset-react": "^2.0.27",
-    "@berun/scripts": "^2.0.27",
-    "@berun/runner-babel": "^2.0.22",
+    "@berun/preset-react": "^2.0.28",
+    "@berun/scripts": "^2.0.28",
+    "@berun/runner-babel": "^2.0.23",
     "@berun/runner-prettier": "^2.0.26",
     "@berun/runner-tslint": "^2.0.27",
     "@bestatic/layout": "^2.0.10",

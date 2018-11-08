@@ -1,0 +1,49 @@
+
+# This GraphQL file was hand created
+
+# CHANGE HISTORY
+# Sat Feb 17 2018 10:38:05 GMT-0600 (CST) Initial generation from Firebase using firebase-schema-generator
+
+# SCALARS
+# Built in:  Int, Float, String, Boolean, ID
+scalar Date
+scalar Time
+scalar Json
+
+# SUBSTITUTIONS
+#    __ substituted for : in keys
+#    All spaces and non alphanumerics removed in enums
+
+# DIRECTIVES
+#    @primary  - mark field as part of the primary key (composite keys allowed)
+#    @foreign - mark primary key field as also the foreign key of another Type
+#    @json(key1: "type", key2: "type" ...) - field contains a JSON object or array with type
+#    @connector(name: function) - provide resolver function linking to another Type
+#    @resolver(get: function) - provide resolver function to backend persistent storage / database path
+#    @entityprefixed - field is foreign key of one of multiple other entities (e.g org: or user:)
+#    @source(key: "value") -  key is stored as value in backend persistent storage
+
+
+type Post 
+     @connector(byId: "(id) => getDocument('posts/${id}')")
+    {
+        id: ID! @primary,
+        user:  User @resolver(get: "UserById(user_id)"),,
+        title: String!,
+        body: String!
+    }
+    
+type User 
+     @connector(byId: "(id) => getDocument('users/${id}')")
+     @connector(UserById: "(user_id) => getDocument('users/${user_id}')")
+    {
+        id: ID! @primary,
+        name:  String!,
+        username:  String!,
+        email:  String!,
+        address: Json! @json(street: "String", suite: "String", city: "String", zipcode: "String")
+        website:  String!,
+        phone:  String!,
+        company:  Json! @json(name: "String", catchPhrase: "String", bs: "String")
+    }
+    

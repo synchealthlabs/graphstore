@@ -1,24 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useFrame } from 'react-use-iframe'
+import {useGraphStore, User, Post, observer } from './graphstore'
 
-import { GraphStoreWorker } from './graphstore/GraphStoreWorker'
+const App = observer(props => {
 
-const store = new GraphStoreWorker({
-  title: 'Test Application',
-  posts: {
-    1: {
-      title: 'Blog post #1',
-      content: 'This is sample content of the blog post'
-    },
-    2: {
-      title: 'Blog post 21',
-      content: 'This is more content for a blog post'
-    }
-  }
-})
+  const post: Post = useGraphStore((stores)=> stores.PostStore.getbyId('1'))
+  const user: User = post.user
 
-const App = props => {
   const iframe = useFrame({ src: './frame.html' }, worker => {
     worker.use((context, next) => {
       console.log('request from iframe', context.request)
@@ -29,15 +18,15 @@ const App = props => {
       context.response = document.title
     })
   })
-
-  const item1: any = store.db.ref('/posts/1')
-
+ 
   return (
     <div>
-      {item1.title}
+      HELLO <p>{user.name}</p>
+      {post.title}
       {iframe}
+      <button onClick={() => { post.title = "UPDATED" }} />
     </div>
   )
-}
+})
 
 ReactDOM.render(<App />, document.getElementById('root'))

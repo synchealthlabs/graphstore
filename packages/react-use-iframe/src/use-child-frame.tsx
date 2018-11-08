@@ -1,18 +1,22 @@
-import {default as Channel} from '@evecalm/message-hub'
-import React from 'react'
+import { default as Channel } from '@evecalm/message-hub'
+import React, { useMemo } from 'react'
 import ReactResizeDetector from 'react-resize-detector';
 
 export const useChildFrame = (callback) => {
 
-    const channel = new Channel({ type: 'frame', peer: parent })
+    return useMemo(() => {
 
-    const onResize = (height, width) => {
-        channel.emit("resize", width);
-    }
+        const channel = new Channel({ type: 'frame', peer: parent })
 
-    callback(channel)
+        const onResize = (height, width) => {
+            channel.emit("resize", width);
+        }
 
-    return <ReactResizeDetector handleHeight onResize={onResize} />
-    
+        callback(channel)
+
+        return <ReactResizeDetector handleHeight onResize={onResize} />
+
+    }, [])
+
 }
 
