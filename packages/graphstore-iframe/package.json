@@ -20,7 +20,8 @@
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "react": "next",
-    "react-dom": "next"
+    "react-dom": "next",
+    "mobx-react": "^5.3.6"
   },
   "scripts": {
     "start": "berun-scripts start",

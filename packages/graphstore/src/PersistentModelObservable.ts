@@ -1,4 +1,4 @@
-import { observable, extras, IObservableArray, isObservableArray, untracked, toJS as mobx_toJS, BaseAtom } from 'mobx';
+import { observable, getAtom, _isComputingDerivation, IObservableArray, isObservableArray, untracked, toJS as mobx_toJS, IAtom } from 'mobx';
 
 /** 
  * An observable collection in @besync/GraphStore;  it extends the MobX observable array
@@ -62,10 +62,10 @@ export function enhancedObservable(data: any, delegate: IEnhancedObservableDeleg
 		o = observable.map(data);
 	}
 	else {
-		o = observable(data);
+		o = observable.box(data);
 	}
 
-	const atom = extras.getAtom(o) as BaseAtom;
+	const atom = getAtom(o) as any;
 	const onBecomeUnobserved = atom.onBecomeUnobserved;
 	const reportObserved = atom.reportObserved;
 	let isObserved = false;
@@ -80,7 +80,7 @@ export function enhancedObservable(data: any, delegate: IEnhancedObservableDeleg
 	};
 	atom.reportObserved = function () {
 		const res = reportObserved.apply(atom, arguments);
-		if (!isObserved && extras.isComputingDerivation()) {
+		if (!isObserved && _isComputingDerivation()) {
 			isObserved = true;
 			delegate.addObserver();
 		}
@@ -98,7 +98,7 @@ export function enhancedObservable(data: any, delegate: IEnhancedObservableDeleg
 */
 export function enhancedObservableArray(delegate: IEnhancedObservableDelegate): IEnhancedObservableArray<any> {
 	const o = observable.array() as IEnhancedObservableArray<any>;
-	const atom = extras.getAtom(o) as BaseAtom;
+	const atom = getAtom(o) as any;
 	const onBecomeUnobserved = atom.onBecomeUnobserved;
 	const reportObserved = atom.reportObserved;
 	let isObserved = false;
@@ -136,7 +136,7 @@ export function enhancedObservableArray(delegate: IEnhancedObservableDelegate): 
 
 	atom.reportObserved = function () {
 		const res = reportObserved.apply(atom, arguments);
-		if (!isObserved && extras.isComputingDerivation()) {
+		if (!isObserved && _isComputingDerivation()) {
 			isObserved = true;
 			delegate.addObserver();
 		}
@@ -172,26 +172,26 @@ export function isEnhancedObservable(thing: any): thing is IEnhancedObservableDe
  * default, but this can be disabled to improve performance.
  * 
  * @param source the MobX observable
- * @param detectCycles default true
+ * @param options { detectCycles default true} 
 */
-export function toJS<T>(source: T, detectCycles?: boolean): T
-export function toJS(source: any, detectCycles?: boolean): any
-export function toJS(source, detectCycles: boolean, __alreadySeen: [any, any][]) // internal overload
-export function toJS(source, detectCycles: boolean = true, __alreadySeen: [any, any][] = []) {
+export function toJS<T>(source: T, options?: ToJSOptions): T
+export function toJS(source: any, options?: ToJSOptions): any
+{
+	if (typeof options === "boolean") options = { detectCycles: options }
 
 	if (isEnhancedObservableArray(source)) {
 		const res = []
-		const toAdd = source.map(value => toJS(value, detectCycles, __alreadySeen))
+		const toAdd = source.map(value => toJS(value, options))
 		res.length = toAdd.length
 		for (let i = 0, l = toAdd.length; i < l; i++) { res[i] = toAdd[i] }
 		return res
 	}
 
 	if (isEnhancedObservable(source)) {
-		return untracked(() => Object.keys(source).concat(Object.keys(source["$emobx"])).reduce((result, key, index, array) => { result[key] = toJS(source[key], detectCycles, __alreadySeen); return result }, {}));
+		return untracked(() => Object.keys(source).concat(Object.keys(source["$emobx"])).reduce((result, key, index, array) => { result[key] = toJS(source[key], options); return result }, {}));
 	}
 
-	return mobx_toJS(source, detectCycles, __alreadySeen);
+	return mobx_toJS(source, options);
 
 }
 
@@ -271,4 +271,10 @@ export function makeNonEnumerable(obj, ...names) {
 		pd.enumerable = false;
 		Object.defineProperty(obj, name, pd);
 	}
+}
+
+type ToJSOptions = {
+    detectCycles?: boolean
+    exportMapsAsObjects?: boolean
+    recurseEverything?: boolean
 }

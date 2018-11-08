@@ -4,8 +4,7 @@
         "js"
     ],
     "rootDir": "packages",
-    "collectCoverage": true,
-    "mapCoverage": true,
+    "collectCoverage": false,
     "coverageDirectory": "../build/coverage",
     "collectCoverageFrom": [
         "**/lib/**/*.js",

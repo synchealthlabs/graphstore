@@ -4,6 +4,7 @@ import { useFrame } from 'react-use-iframe'
 import {useGraphStore, User, Post, observer } from './graphstore'
 
 const App = observer(props => {
+  console.log("render1")
 
   const post: Post = useGraphStore((stores)=> stores.PostStore.getbyId('1'))
   const user: User = post.user
@@ -29,4 +30,17 @@ const App = observer(props => {
   )
 })
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const App2 = observer(props => {
+  console.log("render2")
+  const post: Post = useGraphStore((stores)=> stores.PostStore.getbyId('1'))
+   
+  return (
+    <div>
+      SECOND
+      {post.title}
+      <button onClick={() => { post.title = "UPDATED2" }} />
+    </div>
+  )
+})
+
+ReactDOM.render(<><App /><App2 /></>, document.getElementById('root'))

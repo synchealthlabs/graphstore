@@ -1,12 +1,12 @@
 
-import { useStrict as MobxUseStrict, autorun, action, reaction, IReactionDisposer } from 'mobx';
+import { configure, autorun, action, reaction, IReactionDisposer } from 'mobx';
 import { Model, GraphStoreFirebase, IFireDatabase, GraphStoreMemory, toJS, push, IEnhancedObservableArray } from '@besync/graphstore';
 import { stores, enums, OrgUser, mockData } from '@besync/graphstore-test-mockdata';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as admin from 'firebase-admin';
 
-MobxUseStrict(true);
+configure({ enforceActions: "observed" })	
 
 var DatabaseCases = [];
 
