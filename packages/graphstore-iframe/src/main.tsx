@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useFrame } from 'react-use-iframe'
-import {useGraphStore, User, Post, observer } from './graphstore'
+import { useGraphStore, User, Post, Observer } from './graphstore'
 
-const App = observer(props => {
+
+
+const App = props => {
   console.log("render1")
 
-  const post: Post = useGraphStore((stores)=> stores.PostStore.getbyId('1'))
+  const post: Post = useGraphStore((stores) => {console.log("useGS1"); return stores.PostStore.getbyId('1')})
   const user: User = post.user
 
   const iframe = useFrame({ src: './frame.html' }, worker => {
@@ -19,28 +21,29 @@ const App = observer(props => {
       context.response = document.title
     })
   })
- 
+
   return (
-    <div>
+    <Observer>{() => (<div>
       HELLO <p>{user.name}</p>
       {post.title}
       {iframe}
       <button onClick={() => { post.title = "UPDATED" }} />
-    </div>
+    </div>)}</Observer>
   )
-})
+}
 
-const App2 = observer(props => {
+const App2 = props => {
   console.log("render2")
-  const post: Post = useGraphStore((stores)=> stores.PostStore.getbyId('1'))
-   
+  const post: Post = useGraphStore((stores) => {console.log("useGS2"); return stores.PostStore.getbyId('1')})
+  const user: User = post.user
+
   return (
-    <div>
+    <Observer>{() => (<div>
       SECOND
       {post.title}
       <button onClick={() => { post.title = "UPDATED2" }} />
-    </div>
+    </div>)}</Observer>
   )
-})
+}
 
 ReactDOM.render(<><App /><App2 /></>, document.getElementById('root'))

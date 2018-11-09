@@ -21,7 +21,8 @@
     "@types/react-dom": "^16.0.9",
     "react": "next",
     "react-dom": "next",
-    "mobx-react": "^5.3.6"
+    "mobx-react": "^5.3.6",
+    "@babel/plugin-proposal-decorators": "~7.1.2"
   },
   "scripts": {
     "start": "berun-scripts start",

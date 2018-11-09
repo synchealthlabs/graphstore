@@ -7,6 +7,7 @@ import { useMemo } from 'react'
 
 export { User, Post } from '@besync/graphstore-test-blogdata';
 export function useGraphStore<T>(fn: (s: Stores) => T){ return useMemo(() => fn(stores), []) }
+export function withGraphStore<T>(fn: (s: Stores) => T){ return fn(stores) }
 
- export { observer, Observer } from './lib/react-mobx'
-// export { observer } from 'mobx-react'
+// export { observer, Observer } from './lib/react-mobx'
+export { observer, Observer } from 'mobx-react'

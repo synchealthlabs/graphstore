@@ -6,7 +6,7 @@
 
 
 import { Model, Submodel, Status, Store, primary, foreign, resolver, jsonfield, observable } from '@besync/graphstore';
-export { toJS, push, IEnhancedObservableArray } from '@besync/graphstore';
+export { toJS, push } from '@besync/graphstore';
 
 export interface Time extends Date {};
 export type int = number;
@@ -52,10 +52,10 @@ export class User extends Model
     @observable name: string;
     @observable username: string;
     @observable email: string;
-    @observable @jsonfield address: User._Address;
+    @observable @jsonfield address: User_Address;
     @observable website: string;
     @observable phone: string;
-    @observable @jsonfield company: User._Company;
+    @observable @jsonfield company: User_Company;
 
     protected static Store: typeof Store = UserStore;
 
@@ -63,24 +63,23 @@ export class User extends Model
 
 }
 
-export namespace User {
-    export class _Address extends Submodel
-    {
-    @observable street?: string;
-    @observable suite?: string;
-    @observable city?: string;
-    @observable zipcode?: string;
-    }
+export class User_Address extends Submodel
+{
+@observable street?: string;
+@observable suite?: string;
+@observable city?: string;
+@observable zipcode?: string;
 }
 
-export namespace User {
-    export class _Company extends Submodel
-    {
-    @observable name?: string;
-    @observable catchPhrase?: string;
-    @observable bs?: string;
-    }
+
+
+export class User_Company extends Submodel
+{
+@observable name?: string;
+@observable catchPhrase?: string;
+@observable bs?: string;
 }
+
 
 
 /* **************************

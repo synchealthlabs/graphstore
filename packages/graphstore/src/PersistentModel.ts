@@ -1,10 +1,13 @@
 import 'reflect-metadata';
-import { enhancedObservable, enhancedObservableArray, IEnhancedObservableArray, IEnhancedObservableDelegate, toJS, toJS_Primary, toJS_nonPrimary, toJS_Tracked, makeNonEnumerable } from './PersistentModelObservable';
-import { observable as mobx_observable, reaction, action, untracked } from 'mobx';
+import * as PersistentModelObservable from './PersistentModelObservable';
+const { enhancedObservable, enhancedObservableArray, toJS, toJS_Primary, toJS_nonPrimary, toJS_Tracked, makeNonEnumerable } = PersistentModelObservable
+import { observable as mobx_observable, reaction, action, untracked, runInAction } from 'mobx';
 import { IGraphStore, SourceType, IGraphStoreStatus } from './IGraphStore';
 
 export { computed as resolver } from 'mobx';
-export { toJS, push, IEnhancedObservableArray } from './PersistentModelObservable';
+export { toJS, push } from './PersistentModelObservable';
+
+export * from './PersistentModelObservable';
 
 export class Status implements IGraphStoreStatus {
     @mobx_observable executing: boolean = false;
@@ -18,7 +21,7 @@ export class Status implements IGraphStoreStatus {
 * is represented as some sort of extended Observable -- a MobX observable with some extra 
 * batteries included.
 */
-export class Model implements IEnhancedObservableDelegate {
+export class Model implements PersistentModelObservable.IEnhancedObservableDelegate {
 
     private $emobx;
 
@@ -234,7 +237,7 @@ export class Model implements IEnhancedObservableDelegate {
  * database, or may be the result of an observable query based on navigating the object graph or
  * joining one or more database tables. 
 */
-export class ModelCollection implements IEnhancedObservableDelegate {
+export class ModelCollection implements PersistentModelObservable.IEnhancedObservableDelegate {
 
     private _graphStore: IGraphStore;
     private _primaryKeys: string[];
@@ -242,7 +245,7 @@ export class ModelCollection implements IEnhancedObservableDelegate {
     private _currentPath: string;
     private _unsubscribe: () => void;
     private _modelType: any;
-    private _observableArray: IEnhancedObservableArray<any>
+    private _observableArray: PersistentModelObservable.IEnhancedObservableArray<any>
 
     /**
     * Constructor, usually called internally by @besync/GraphStore
@@ -284,7 +287,7 @@ export class ModelCollection implements IEnhancedObservableDelegate {
     *
     * @returns the MobX observable array
     */
-    get observable(): IEnhancedObservableArray<any> {
+    get observable(): PersistentModelObservable.IEnhancedObservableArray<any> {
         return this._observableArray;
     }
 
@@ -328,12 +331,12 @@ export class Submodel extends Model {
 */
 export abstract class Store {
 
-   /**
-    * A class method to provide the database access path of a given document
-    * 
-    * @param the model instance representing the document to locate
-    * @returns the database access path of the given document
-    */
+    /**
+     * A class method to provide the database access path of a given document
+     * 
+     * @param the model instance representing the document to locate
+     * @returns the database access path of the given document
+     */
     static path(model: any): string { /* must override */ throw new Error("Model class does not implement Store"); }
 }
 
@@ -374,18 +377,20 @@ export function observable(target: any, propName: string) {
             }
         },
         set: function (v) {
-            this._isDirty = true;
-            if (this.$emobx[propName] !== undefined) {
-                if (typeof (v) == 'object' && this.$emobx[propName].merge) {
-                    this.$emobx[propName].merge(v);
+            runInAction(() => {
+                this._isDirty = true;
+                if (this.$emobx[propName] !== undefined) {
+                    if (typeof (v) == 'object' && this.$emobx[propName].merge) {
+                        this.$emobx[propName].merge(v);
+                    }
+                    else {
+                        this.$emobx[propName].set(v);
+                    }
                 }
                 else {
-                    this.$emobx[propName].set(v);
+                    this.$emobx[propName] = enhancedObservable(v, this);
                 }
-            }
-            else {
-                this.$emobx[propName] = enhancedObservable(v, this);
-            }
+            })
         }
     });
 }

@@ -2,6 +2,7 @@
   use tsconfig.build.json when building */
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDirs": ["src", "src/__tests__"]
+    "rootDirs": ["src", "src/__tests__"],
+    "experimentalDecorators": true
   },
 }

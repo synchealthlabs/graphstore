@@ -4,7 +4,7 @@ import { useChildFrame } from 'react-use-iframe'
 
 import { useGraphStore, User, Post, observer } from './graphstore'
 
-const FrameApp = observer(() => {
+const FrameApp = () => {
 
   const framehelper = useChildFrame(channel => {
     channel.use((context, next) => {
@@ -38,6 +38,6 @@ const FrameApp = observer(() => {
       {framehelper}
     </div>
   )
-})
+}
 
 ReactDOM.render(<FrameApp />, document.getElementById('root'))

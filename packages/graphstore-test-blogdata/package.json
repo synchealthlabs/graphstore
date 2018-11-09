@@ -2,8 +2,8 @@
   "name": "@besync/graphstore-test-blogdata",
   "version": "1.0.7",
   "description": "mobx mock data store",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "src/index.ts",
+  "typings": "src/index.ts",
   "files": [
     "lib",
     "data"
