@@ -1,3 +1,1 @@
-#  Sample app for `react-use-iframe`
-
-
+# Sample app for `react-use-iframe`

@@ -1,9 +1,8 @@
-
 # This GraphQL file was based on extracted data from Firebase
 # and used as the basis for generating the Javascript (Mobx) object graph model (OGM)
 
 # CHANGE HISTORY
-# Sat Feb 17 2018 10:38:05 GMT-0600 (CST) Initial generation from Firebase using firebase-schema-generator
+# Sat Nov 10 2018 12:12:23 GMT-0600 (Central Standard Time) Initial generation from Firebase using firebase-schema-generator
 
 # SCALARS
 # Built in:  Int, Float, String, Boolean, ID
@@ -24,136 +23,145 @@ scalar Json
 #    @entityprefixed - field is foreign key of one of multiple other entities (e.g org: or user:)
 #    @source(key: "value") -  key is stored as value in backend persistent storage
 
-type Analytics 
-     @connector(byId: "(user_id) => getDocument('analytics/users/${user_id}')")
-     @connector(AnalyticsForUser: "(user_id) => getDocument('analytics/users/${user_id}')")
-    {
-        user: User! @foreign @primary,
-        lastOpened: Date!
-    }
-    
-type AwesomeLink 
-     @connector(byId: "(user_id, id) => getDocument('awesomeLinks/${user_id}/${id}')")
-     @connector(AwesomeLinksForUser: "(user_id) => getCollection('awesomeLinks/${user_id}')")
-    {
-        user: User! @foreign @primary,
-        id: ID! @primary,
-        created: Time!,
-        lastViewed: Date!,
-        link: String!,
-        name: String!,
-        type: String!
-    }
-    
-type GraphState 
-     @connector(byId: "(user_id, id) => getDocument('graphState/${user_id}/${id}')")
-     @connector(GraphStateForUser: "(user_id) => getCollection('graphState/${user_id}')")
-    {
-        user: User! @foreign @primary,
-        id: ID! @primary,
-        encData: String!
-    }
-    
-type Chat 
-     @connector(byId: "(from_user_id, to_user_id, id) => getDocument('chats/${from_user_id}/${to_user_id}/${id}')")
-     @connector(ChatsForUser: "(from_user_id) => getCollection('chats/${from_user_id}')")
-     @connector(ChatsForUserUser: "(from_user_id, to_user_id) => getCollection('chats/${from_user_id}/${to_user_id}')")
-    {
-        from_user: User! @foreign @primary,
-        to_user: User! @foreign @primary,
-        id: ID! @primary,
-        encData: String!,
-        signature: String
-    }
-    
-type Log 
-     @connector(byId: "(user_id, id) => getDocument('logs/${user_id}/${id}')")
-     @connector(LogsForUser: "(user_id) => getCollection('logs/${user_id}')")
-    {
-        user: User! @foreign @primary,
-        id: ID! @primary,
-        entries: [Json!] @json(message: "String!", severity: "String!", timestamp: "Time!"),
-        labels: Json! @json(device: "ID", service: "String")
-    }
-    
-type Post 
-     @connector(byId: "(id) => getDocument('posts/${id}')")
-     @connector(All: "() => getCollection('posts')")
-    {
-        id: ID! @primary,
-        body: String!,
-        starCount: Int!,
-        stars: [Json!] @json(id: "User!", value: "Boolean!"),
-        title: String!,
-        uid: User!
-    }
-    
-type UserPost 
-     @connector(byId: "(user_id, id) => getDocument('userPosts/${user_id}/${id}')")
-     @connector(UserPostsForUser: "(user_id) => getCollection('userPosts/${user_id}')")
-    {
-        user: User! @foreign @primary,
-        id: ID! @primary,
-        body: String!,
-        starCount: Int!,
-        stars: [Json!] @json(id: "UserId!", value: "Boolean!"),
-        title: String!,
-        uid: User!
-    }
-    
-type User 
-     @connector(byId: "(id) => getDocument('users/${id}')")
-    {
-        id: UserId! @primary,
-        email: String!,
-        profile_picture: String!,
-        username: String!
-        analytics: Analytics @resolver(get: "AnalyticsForUser(id)"),
-        awesomeLinks: [AwesomeLink] @resolver(get: "AwesomeLinksForUser(id)"),
-        graphStates: [GraphState] @resolver(get: "GraphStateForUser(id)"),
-        chats: [Chat] @resolver(get: "ChatsForUser(id)"),
-        logs: [Log] @resolver(get: "LogsForUser(id)"),
-        userPosts: [UserPost] @resolver(get: "UserPostsForUser(id)")
-    }
-    
-type Org 
-     @connector(byId: "(id) => getDocument('orgs/${id}')")
-     @connector(All: "() => getCollection('orgs')")
-    {
-        id: OrgId! @primary,
-        name: String!,
-        parent: String!,
-        roles: [Json!] @json(id: "EnumConfigRole!", value: "Boolean!"),
-        search: Json! @json(name: "String")
-        orgUsers: [OrgUser] @resolver(get: "OrgUsersForOrg(id)")
-    }
-    
-type OrgUser 
-     @connector(byId: "(org_id, user_id, role_id) => getDocument('orgUsers/${org_id}/${user_id}/${role_id}')")
-     @connector(OrgUsersForOrg: "(org_id) => getCollection('orgUsers/${org_id}')")
-     @connector(OrgUsersForOrgUser: "(org_id, user_id) => getCollection('orgUsers/${org_id}/${user_id}')")
-    {
-        org: Org! @foreign @primary,
-        user: User! @foreign @primary,
-        role_id: EnumConfigRole! @primary,
-        value: Boolean!
-    }
-    
-enum EnumPeriod 
-    {
-        allTime,
-        day,
-        week,
-        month,
-        quarter,
-        year
-    }
-    
-enum EnumConfigRole 
-    {
-        consumer,
-        admin,
-        supervisor,
-        demo
-    }
-    
+type Analytics
+  @connector(byId: "(user_id) => getDocument('analytics/users/${user_id}')")
+  @connector(
+    AnalyticsForUser: "(user_id) => getDocument('analytics/users/${user_id}')"
+  ) {
+  user: User! @foreign @primary
+  lastOpened: Date!
+}
+
+type AwesomeLink
+  @connector(
+    byId: "(user_id, id) => getDocument('awesomeLinks/${user_id}/${id}')"
+  )
+  @connector(
+    AwesomeLinksForUser: "(user_id) => getCollection('awesomeLinks/${user_id}')"
+  ) {
+  user: User! @foreign @primary
+  id: ID! @primary
+  created: Time!
+  lastViewed: Date!
+  link: String!
+  name: String!
+  type: String!
+}
+
+type GraphState
+  @connector(
+    byId: "(user_id, id) => getDocument('graphState/${user_id}/${id}')"
+  )
+  @connector(
+    GraphStateForUser: "(user_id) => getCollection('graphState/${user_id}')"
+  ) {
+  user: User! @foreign @primary
+  id: ID! @primary
+  encData: String!
+}
+
+type Chat
+  @connector(
+    byId: "(from_user_id, to_user_id, id) => getDocument('chats/${from_user_id}/${to_user_id}/${id}')"
+  )
+  @connector(
+    ChatsForUser: "(from_user_id) => getCollection('chats/${from_user_id}')"
+  )
+  @connector(
+    ChatsForUserUser: "(from_user_id, to_user_id) => getCollection('chats/${from_user_id}/${to_user_id}')"
+  ) {
+  from_user: User! @foreign @primary
+  to_user: User! @foreign @primary
+  id: ID! @primary
+  encData: String!
+  signature: String
+}
+
+type Log
+  @connector(byId: "(user_id, id) => getDocument('logs/${user_id}/${id}')")
+  @connector(LogsForUser: "(user_id) => getCollection('logs/${user_id}')") {
+  user: User! @foreign @primary
+  id: ID! @primary
+  entries: [Json!]
+    @json(message: "String!", severity: "String!", timestamp: "Time!")
+  labels: Json! @json(device: "ID", service: "String")
+}
+
+type Post
+  @connector(byId: "(id) => getDocument('posts/${id}')")
+  @connector(All: "() => getCollection('posts')") {
+  id: ID! @primary
+  body: String!
+  starCount: Int!
+  stars: [Json!] @json(id: "User!", value: "Boolean!")
+  title: String!
+  uid: User!
+}
+
+type UserPost
+  @connector(byId: "(user_id, id) => getDocument('userPosts/${user_id}/${id}')")
+  @connector(
+    UserPostsForUser: "(user_id) => getCollection('userPosts/${user_id}')"
+  ) {
+  user: User! @foreign @primary
+  id: ID! @primary
+  body: String!
+  starCount: Int!
+  stars: [Json!] @json(id: "UserId!", value: "Boolean!")
+  title: String!
+  uid: User!
+}
+
+type User @connector(byId: "(id) => getDocument('users/${id}')") {
+  id: UserId! @primary
+  email: String!
+  profile_picture: String!
+  username: String!
+  analytics: Analytics @resolver(get: "AnalyticsForUser(id)")
+  awesomeLinks: [AwesomeLink] @resolver(get: "AwesomeLinksForUser(id)")
+  graphStates: [GraphState] @resolver(get: "GraphStateForUser(id)")
+  chats: [Chat] @resolver(get: "ChatsForUser(id)")
+  logs: [Log] @resolver(get: "LogsForUser(id)")
+  userPosts: [UserPost] @resolver(get: "UserPostsForUser(id)")
+}
+
+type Org
+  @connector(byId: "(id) => getDocument('orgs/${id}')")
+  @connector(All: "() => getCollection('orgs')") {
+  id: OrgId! @primary
+  name: String!
+  parent: String!
+  roles: [Json!] @json(id: "EnumConfigRole!", value: "Boolean!")
+  search: Json! @json(name: "String")
+  orgUsers: [OrgUser] @resolver(get: "OrgUsersForOrg(id)")
+}
+
+type OrgUser
+  @connector(
+    byId: "(org_id, user_id, role_id) => getDocument('orgUsers/${org_id}/${user_id}/${role_id}')"
+  )
+  @connector(OrgUsersForOrg: "(org_id) => getCollection('orgUsers/${org_id}')")
+  @connector(
+    OrgUsersForOrgUser: "(org_id, user_id) => getCollection('orgUsers/${org_id}/${user_id}')"
+  ) {
+  org: Org! @foreign @primary
+  user: User! @foreign @primary
+  role_id: EnumConfigRole! @primary
+  value: Boolean!
+}
+
+enum EnumPeriod {
+  allTime
+  day
+  week
+  month
+  quarter
+  year
+}
+
+enum EnumConfigRole {
+  consumer
+  admin
+  supervisor
+  demo
+}

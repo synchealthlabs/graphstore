@@ -78,7 +78,7 @@ The variable user will now stay up to date
 
 ## Back end integrations
 
-Currently the library has connectors for the Firebase realtime database and for a JSON-based in memory store.  
+Currently the library has connectors for the Firebase realtime database, a JSON-based in memory store, and a cross-domain parent-iframe-worker store.
 
 
 ## Installation for development
@@ -100,7 +100,7 @@ npm  test
 ## Development Stack
 
 - Lerna: mono repository manager
-- Jest: Javascript test runner
+- Build: BeRun scripts including Typescript, Jest, TSLint, Prettier, Webpack
 - Yarn: Node package manager
 - TypeDoc: Documenteration generator
 - Docusaurus: Documentation publisher

@@ -15,10 +15,6 @@
     "sgen1": "graphstore-dev firebase  __tests__/secret/db-export.json build/schema.graphql",
     "sgen2": "graphstore-dev graphql  build/schema.graphql build/model.ts"
   },
-  "files": [
-    "src",
-    "bin"
-  ],
   "keywords": [
     "mobx",
     "graphstore",

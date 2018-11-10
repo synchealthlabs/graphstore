@@ -33,8 +33,7 @@ import { Model, Submodel, Status, Store, primary, foreign, resolver, jsonfield, 
 export { toJS, push, IEnhancedObservableArray } from '@besync/graphstore';
 
 export interface Time extends Date {};
-export type int = number;
-`}
+export type int = number;`}
 
 const storeFunctionsTemplate = (entity) => {
     var name = entity.name;
@@ -71,11 +70,11 @@ const modelTemplate = (entity) => {
     var name = entity.name;
 
     var fields = entity.fields.map(function (field) {
-        return fieldTemplate(field, name, ".");
+        return fieldTemplate(field, name, "");
     }).join('');
 
     var subclasses = entity.fields.filter((field) => field.type == "Json").map(function (field) {
-        return innerClassTemplate(name, getSubName(field.name), field.json, 0);
+        return innerClassTemplate(name, name + getSubName(field.name), field.json, 0);
     }).join('');
 
     var privatefields = entity.fields
@@ -131,10 +130,8 @@ const innerClassTemplate = (parent, name, fields, padding) => {
     }).join('');
 
     return `
-${" ".repeat(padding)}export namespace ${parent} {
-${" ".repeat(padding)}    export class ${name} extends Submodel
-${" ".repeat(padding)}    {${innerFields}
-${" ".repeat(padding)}    }
+${" ".repeat(padding)}export class ${name} extends Submodel
+${" ".repeat(padding)}{${innerFields}
 ${" ".repeat(padding)}}
 ${" ".repeat(padding)}${subclasses}`
 }
@@ -148,10 +145,8 @@ const enumTemplate = (entity) => {
     }).join();
 
     return `
-export namespace enums {
-    export enum ${name}
-    {${fields}
-    }
+export enum ${name}
+{${fields}
 }
 `
 }
@@ -180,9 +175,7 @@ const fieldTemplate = (field, parent, separator) => {
 
     if (field.primary) name = "@primary " + name;
 
-    if (value.startsWith("Enum"))
-        value = "enums." + value;
-
+   // if (value.startsWith("Enum")) { value = "enums." + value }
 
     if (field.listType) value = value + "[]"
 
@@ -216,7 +209,7 @@ module.exports.default = function exporter(filename, schema) {
             .map(function (key) {
                 var entity = schema[key];
                 return storeTemplate(entity);
-            }).join('');
+            }).join('\n');
 
     model += `
 
@@ -280,6 +273,7 @@ module.exports.default = function exporter(filename, schema) {
  * ************************** */
     
 export const stores = { ${Object.keys(schema).map(key => key + "Store").filter(key => !key.startsWith("Enum")).join(', ')} };
+
 export const models = { ${Object.keys(schema).filter(key => !key.startsWith("Enum")).join(', ')} };
 `
 

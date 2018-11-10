@@ -1,4 +1,4 @@
-const runnerIframe = require('react-use-iframe/berun')
+const runnerIframe = require('@besync/react-use-iframe/berun')
 
 module.exports = {
   use: [

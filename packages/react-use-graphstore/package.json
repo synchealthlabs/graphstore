@@ -1,0 +1,38 @@
+{
+  "name": "@besync/react-use-graphstore",
+  "version": "0.1.0",
+  "main": "dist/cjs/index.ts",
+  "module": "dist/esm/index.js",
+  "typings": "dist/index.d.ts",
+  "ts:main": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/besync/graphstore"
+  },
+  "author": {
+    "name": "BeSync"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@besync/graphstore": "^1.0.7",
+    "tslib": "^1.9.3"
+  },
+  "devDependencies": {
+    "@berun/dev-scripts": "^2.0.17"
+  },
+  "peerDependencies": {
+    "react": "next"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "berun-dev clean",
+    "build": "berun-dev build && berun-dev build -- -m CommonJS --outDir dist/cjs",
+    "prepare": "berun-dev build -- --emitDeclarationOnly",
+    "test": "berun-dev test --env=jsdom",
+    "coverage": "berun-dev test --env=jsdom --coverage",
+    "prepublishOnly": "yarn lint && yarn build",
+    "lint": "berun-dev lint"
+  }
+}

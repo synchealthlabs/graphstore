@@ -1,0 +1,51 @@
+{
+  "name": "@besync/graphstore-example-iframe",
+  "private": true,
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tinialabs/notebook"
+  },
+  "author": "@guycreate, Sync Health Labs Open Source contributors",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@berun/preset-react": "^2.0.29",
+    "@berun/scripts": "^2.0.29",
+    "@berun/runner-babel": "^2.0.24",
+    "@berun/runner-prettier": "^2.0.28",
+    "@berun/runner-tslint": "^2.0.29",
+    "@berun/runner-tsmain": "^2.0.28",
+    "@bestatic/layout": "^2.0.12",
+    "@types/jest": "^23.3.9",
+    "@types/react": "^16.7.2",
+    "@types/react-dom": "^16.0.9",
+    "@babel/plugin-proposal-decorators": "~7.1.2"
+  },
+  "scripts": {
+    "start": "berun-scripts start",
+    "build": "berun-scripts build",
+    "lint": "berun-scripts lint",
+    "eject": "berun-scripts eject"
+  },
+  "dependencies": {
+    "react": "next",
+    "react-dom": "next",
+    "@besync/react-use-iframe": "0.1.0",
+    "@besync/react-use-graphstore-channel": "0.1.0"
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
+  }
+}

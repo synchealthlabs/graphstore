@@ -2,12 +2,13 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "clean": "rimraf packages/**/lib && rimraf packages/**/build",
-    "prepare": "lerna run prepare --scope @besync/graphstore && lerna run prepare",
-    "prepublish": "npm run clean && lerna run dist --scope @besync/graphstore && lerna run dist",
+    "clean": "rimraf packages/**/dist && rimraf packages/**/build",
+    "prepare": "lerna run prepare",
+    "prepublishOnly": "npm run clean && lerna run build",
+    "dist": "npm run clean && lerna run build",
     "publish": "lerna publish",
     "pretest": "lerna run pretest",
-    "test": "./node_modules/jest/bin/jest.js --config ./jest.config.json --verbose --runInBand",
+    "test": "lerna run test",
     "xgen": "lerna --scope @besync/graphstore-dev run xgen && lerna --scope @besync/graphstore-test-mockdata run xgen",
     "website:install": "npm install --prefix website",
     "website:start": "npm start --prefix website",
@@ -34,6 +35,10 @@
     "typedoc-plugin-sourcefile-url": "^1.0.3",
     "typescript": "^3.1.6"
   },
+  "resolutions": {
+    "tslint-loader": "3.5.4",
+    "babel-core": "^7.0.0-bridge.0"
+	},
   "license": "Apache-2.0",
   "workspaces": [
     "packages/*"

@@ -2,7 +2,7 @@
 
 ## About
 
-This is a light-weight React Hook for inserting an iFrame into a React element.  
+This is a light-weight React Hook for inserting an iFrame into a React element.
 
 It solves the issues associated with passing objects, events and function calls between parent and child, especially in Cross Domain situations. This allows expensive work and/or security-sensitive work to be offloaded to sandboxed child iframes.
 
@@ -27,28 +27,27 @@ React 16.7 or later
 ## installation
 
 ```bash
-$ npm install react-use-iframe
+$ npm install @besync/react-use-iframe
 ```
 
 ```js
-import { useFrame } from 'react-use-iframe'
+import { useFrame } from '@besync/react-use-iframe'
 ```
 
 ```js
-import { useChildFrame } from 'react-use-iframe'
+import { useChildFrame } from '@besync/react-use-iframe'
 ```
 
 ## Usage (Parent)
+
 ```js
-/// app.js 
+/// app.js
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { useFrame } from 'react-use-iframe'
+import { useFrame } from '@besync/react-use-iframe'
 
-const App = (props) => {
-
-  const iframe = useFrame({src: './frame.html'}, (channel)=>{
-
+const App = props => {
+  const iframe = useFrame({ src: './frame.html' }, channel => {
     channel.use((context, next) => {
       console.log('request from iframe', context.request)
       next()
@@ -57,31 +56,30 @@ const App = (props) => {
     channel.route('page-title', (context, next) => {
       context.response = document.title
     })
-
   })
 
   return (
-    <div>Hello World
-       {iframe}
+    <div>
+      Hello World
+      {iframe}
     </div>
   )
-  
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
 ## Usage (Child React example)
+
 ```js
-// ./src/frame.[js, tsx] 
+// ./src/frame.[js, tsx]
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { useChildFrame } from 'react-use-iframe'
+import { useChildFrame } from '@besync/react-use-iframe'
 
-console.log("FRAME STARTED");
+console.log('FRAME STARTED')
 
-const framehelper = useChildFrame((channel) => {
-
+const framehelper = useChildFrame(channel => {
   channel.use((context, next) => {
     console.log('request from parent', context.request)
     return next()
@@ -91,11 +89,11 @@ const framehelper = useChildFrame((channel) => {
     context.response = 'myNameisMyPassport'
   })
 
-  document.body.addEventListener('click', (e) => {
+  document.body.addEventListener('click', e => {
     // use ready to make sure the iframe is ready
     // (useChilfFrame channel callback is called before DOM is rendered)
     channel.ready().then(() =>
-      channel.fetch('page-title', 'myparameter').then((resp) => {
+      channel.fetch('page-title', 'myparameter').then(resp => {
         console.log('response from outer', resp)
       })
     )
@@ -103,14 +101,12 @@ const framehelper = useChildFrame((channel) => {
 })
 
 const App = () => {
-
   return (
     <div>
       This is the iFramne
-        {framehelper}
+      {framehelper}
     </div>
-  );
-
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
@@ -131,43 +127,44 @@ module.exports = {
   use: [
     '@berun/preset-react',
     '@berun/runner-eslint',
-    require('react-use-iframe/berun')
+    require('@besync/react-use-iframe/berun')
   ]
 }
 ```
 
 `package.json`
+
 ```json
 {
-    "scripts": {
-      "start": "berun-scripts start",
-      "build": "berun-scripts build",
-      "format": "berun-scripts lint",
-      "test": "berun-scripts test --env=jsdom",
-      "eject": "berun-scripts eject"
-    },
-    "dependencies": {
-       "react": "next",
-       "react-dom": "next",
-       "react-use-iframe": "0.1.0"
-    },
-      "devDependencies": {
-      "@berun/scripts": "...",
-      "@berun/preset-react": "...",
-      "@berun/runner-eslint": "..."
-    },
-    "resolutions": {
-      "babel-core": "^7.0.0-bridge.0"
-    }
+  "scripts": {
+    "start": "berun-scripts start",
+    "build": "berun-scripts build",
+    "format": "berun-scripts lint",
+    "test": "berun-scripts test --env=jsdom",
+    "eject": "berun-scripts eject"
+  },
+  "dependencies": {
+    "react": "next",
+    "react-dom": "next",
+    "@besync/react-use-iframe": "..."
+  },
+  "devDependencies": {
+    "@berun/scripts": "...",
+    "@berun/preset-react": "...",
+    "@berun/runner-eslint": "..."
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0"
   }
-  ```
+}
+```
 
 ## Prior Art
 
 - `maslianok/react-resize-detector` - Used in the iFrame component to communicate resize events to the parent
 - `@evecalm/message-hub` - Used for the two way RPC between parent and child
 - `@bestyled/berun` - Used to provide a zero configuration, batteries included, Webpack build, similar to `create-react-app`
-- `react-use` - Used as inspiration for the React Hooks introduced in React 16.7;  not used as a dependency
+- `react-use` - Used as inspiration for the React Hooks introduced in React 16.7; not used as a dependency
 - `useState`, `useRef`, and `useEffects` introduced in React 16.7
 
 ## License
