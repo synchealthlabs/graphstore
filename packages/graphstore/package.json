@@ -1,6 +1,6 @@
 {
   "name": "@besync/graphstore",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "mobx persistent stores for graph databases like firebase",
   "main": "dist/cjs/index.ts",
   "module": "dist/esm/index.js",

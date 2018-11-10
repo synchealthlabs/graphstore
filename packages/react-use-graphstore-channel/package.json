@@ -1,6 +1,6 @@
 {
   "name": "@besync/react-use-graphstore-channel",
-  "version": "0.1.0",
+  "version": "1.0.8",
   "main": "dist/cjs/index.ts",
   "module": "dist/esm/index.js",
   "typings": "dist/index.d.ts",
@@ -14,8 +14,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@besync/graphstore": "^1.0.7",
-    "@besync/react-use-graphstore": "^0.1.0",
+    "@besync/graphstore": "^1.0.8",
+    "@besync/react-use-graphstore": "^1.0.8",
     "tslib": "^1.9.3"
   },
   "peerDependencies": {
