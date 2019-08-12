@@ -1,7 +1,7 @@
 {
   "name": "@besync/graphstore-example-iframe",
   "private": true,
-  "version": "1.0.8",
+  "version": "1.0.10",
   "repository": {
     "type": "git",
     "url": "https://github.com/tinialabs/notebook"
@@ -28,7 +28,7 @@
     "eject": "berun-scripts eject"
   },
   "dependencies": {
-    "@besync/react-use-graphstore-channel": "^1.0.8",
+    "@besync/react-use-graphstore-channel": "^1.0.10",
     "@besync/react-use-iframe": "^1.0.8",
     "react": "next",
     "react-dom": "next"

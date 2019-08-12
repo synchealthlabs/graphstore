@@ -1,6 +1,6 @@
 {
   "name": "@besync/graphstore-test-blogdata",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "mobx mock data store",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -22,7 +22,7 @@
   "author": "@guycreate, Sync Health Labs Open Source contributors",
   "license": "Apache-2.0",
   "dependencies": {
-    "@besync/graphstore": "^1.0.8",
+    "@besync/graphstore": "^1.0.10",
     "tslib": "^1.9.3"
   },
   "repository": {
