@@ -38,7 +38,7 @@ export function useGraphStoreChildChannel(
           () =>
             db.ref().update(hydrate_data, () => {
               console.log('FRAME: hydrated', hydrate_data)
-            }),
+            }, true),
           0
         )
       })
